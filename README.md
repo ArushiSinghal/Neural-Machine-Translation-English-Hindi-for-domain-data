@@ -11,9 +11,12 @@ Contributor:
 Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-CQCzlql4/edit?usp=sharing
 
 # References
-1) https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html
-2) https://machinelearningmastery.com/encoder-decoder-recurrent-neural-network-models-neural-machine-translation/
-3) https://arxiv.org/abs/1409.3215 (Research Paper)
+1) https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html (main)
+2) https://arxiv.org/abs/1409.3215 (Research Paper)
+3) http://www.manythings.org/anki/
+4) https://machinelearningmastery.com/encoder-decoder-recurrent-neural-network-models-neural-machine-translation/
+5) https://machinelearningmastery.com/encoder-decoder-long-short-term-memory-networks/
+6) https://machinelearningmastery.com/develop-neural-machine-translation-system-keras/
 
 
 
