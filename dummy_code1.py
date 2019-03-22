@@ -4,7 +4,6 @@ from pickle import dump
 from unicodedata import normalize
 from numpy import array
 
-
 def load_doc(filename):
     file = open(filename, mode='rt', encoding='utf-8')
     text = file.read()
@@ -17,43 +16,25 @@ def to_pairs(english_text, hindi_text):
     pairs = []
     for i in range(len(hindi_lines)):
         pairs.append([])
-        pairs[i].append(english_lines[i])
+        pairs[i].append(pre_process_english_sentence(english_lines[i]))
         pairs[i].append(hindi_lines[i])
     return pairs
 
-def clean_pairs(lines):
-    cleaned = list()
-    # prepare regex for char filtering
+def pre_process_english_sentence(line):
     re_print = re.compile('[^%s]' % re.escape(string.printable))
-    # prepare translation table for removing punctuation
     table = str.maketrans('', '', string.punctuation)
-    for pair in lines:
-        clean_pair = list()
-        for line in pair:
-            # normalize unicode characters
-            #line = normalize('NFD', line).encode('ascii', 'ignore')
-            #line = line.decode('UTF-8')
-            # tokenize on white space
-            line = line.split()
-            # convert to lowercase
-            line = [word.lower() for word in line]
-            # remove punctuation from each token
-            line = [word.translate(table) for word in line]
-            # remove non-printable chars form each token
-            line = [re_print.sub('', w) for w in line]
-            # remove tokens with numbers in them
-            line = [word for word in line if word.isalpha()]
-            # store as string
-            clean_pair.append(' '.join(line))
-        cleaned.append(clean_pair)
-        print (clean_pair)
-    return array(cleaned)
+    line = normalize('NFD', line).encode('ascii', 'ignore')
+    line = line.decode('UTF-8')
+    line = line.split()
+    line = [word.lower() for word in line]
+    line = [word.translate(table) for word in line]
+    line = [re_print.sub('', w) for w in line]
+    line = [word for word in line if word.isalpha()]
+    line = ' '.join(line)
+    return line
 
 english_text = load_doc('English')
 hindi_text = load_doc('Hindi')
 #hindi_text = load_doc('French.txt')
 pairs = to_pairs(english_text, hindi_text)
-#print (pairs)
-clean_pairs = clean_pairs(pairs)
-print (clean_pairs)
-
+print (pairs)
