@@ -58,7 +58,7 @@ def to_pairs(english_text, hindi_text):
         pairs[i].append(hindi_lines[i])
     return pairs
 
-def pre_process_english_sentence(lines):
+def pre_process_english_sentence(line):
     re_print = re.compile('[^%s]' % re.escape(string.printable))
     table = str.maketrans('', '', string.punctuation)
     line = normalize('NFD', line).encode('ascii', 'ignore')
@@ -68,6 +68,7 @@ def pre_process_english_sentence(lines):
     line = [word.translate(table) for word in line]
     line = [re_print.sub('', w) for w in line]
     line = [word for word in line if word.isalpha()]
+    line = ' '.join(line)
     return line
 
 english_text = load_doc('english.txt')
