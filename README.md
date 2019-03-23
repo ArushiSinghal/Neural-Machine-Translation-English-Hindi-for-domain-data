@@ -25,7 +25,7 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 12) https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html
 13) https://www.coursera.org/learn/nlp-sequence-models/lecture/ftkzt/recurrent-neural-network-model
 
-#Hindi text Normalization
+# Hindi text Normalization
 
 http://talukdar.net/papers/KBCS04_HPL-1.pdf
 
