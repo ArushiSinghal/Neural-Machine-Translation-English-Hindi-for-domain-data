@@ -25,6 +25,8 @@ from indicnlp import common
 common.set_resources_path(INDIC_NLP_RESOURCES)
 from indicnlp import loader
 loader.load()
+from indicnlp.normalize.indic_normalize import IndicNormalizerFactory
+from indicnlp.tokenize import indic_tokenize
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -66,6 +68,24 @@ def to_pairs(english_text, hindi_text):
         pairs[i].append(pre_process_hindi_sentence(hindi_lines[i]))
     return pairs
 
+def clean_text(line):
+    text = line
+    text=text.replace(u',','')
+    text=text.replace(u'"','')
+    text=text.replace(u'(','')
+    text=text.replace(u')','')
+    text=text.replace(u'"','')
+    text=text.replace(u':','')
+    text=text.replace(u"'",'')
+    text=text.replace(u"‘‘",'')
+    text=text.replace(u"’’",'')
+    text=text.replace(u"''",'')
+    text=text.replace(u".",'')
+    text=text.replace(u"-",'')
+    text=text.replace(u"।",'')
+    text=text.replace(u"?",'')
+    return text
+
 def pre_process_english_sentence(line):
     re_print = re.compile('[^%s]' % re.escape(string.printable))
     table = str.maketrans('', '', string.punctuation)
@@ -80,9 +100,20 @@ def pre_process_english_sentence(line):
     return line
 
 def pre_process_hindi_sentence(line):
-    line = line.split()
+    remove_nuktas=False
+    factory=IndicNormalizerFactory()
+    normalizer=factory.get_normalizer("hi",remove_nuktas)
+    line=normalizer.normalize(line)
+    line=clean_text(line)
+    tokens = list()
+    for t in indic_tokenize.trivial_tokenize(line):
+        tokens.append(t)
+    line = tokens
+    line = [word.lower() for word in line]
+    line = [word for word in line if not re.search(r'\d', word)]
     line = ' '.join(line)
-    return line
+    print (line)
+    return (line)
 
 english_text = load_doc('english.txt')
 hindi_text = load_doc('hindi.txt')
