@@ -47,6 +47,9 @@ def clean_text(line):
     text=text.replace(u"-",'')
     text=text.replace(u"।",'')
     text=text.replace(u"?",'')
+    text=text.replace(u"\\",'')
+    text=text.replace(u"_",'')
+    text=re.sub('[a-zA-Z]', '', text)
     return text
 
 def pre_process_english_sentence(line):
@@ -63,7 +66,6 @@ def pre_process_english_sentence(line):
     return line
 
 def pre_process_hindi_sentence(line):
-    print (line)
     remove_nuktas=False
     factory=IndicNormalizerFactory()
     normalizer=factory.get_normalizer("hi",remove_nuktas)
@@ -76,7 +78,6 @@ def pre_process_hindi_sentence(line):
     line = [word.lower() for word in line]
     line = [word for word in line if not re.search(r'\d', word)]
     line = ' '.join(line)
-    print (line)
     return (line)
 
 
