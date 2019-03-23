@@ -5,7 +5,6 @@ import matplotlib
 import pandas
 import statsmodels
 import sklearn
-import theano
 import tensorflow
 import keras
 from io import open
@@ -27,6 +26,9 @@ from indicnlp import loader
 loader.load()
 from indicnlp.normalize.indic_normalize import IndicNormalizerFactory
 from indicnlp.tokenize import indic_tokenize
+from pickle import dump
+from unicodedata import normalize
+from numpy import array
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -36,8 +38,11 @@ EOS_token = 1
 class Lang:
     def __init__(self, name):
         self.name = name
+        #index of each new word
         self.word2index = {}
+        #count of that word
         self.word2count = {}
+        #index with word
         self.index2word = {0: "SOS", 1: "EOS"}
         self.n_words = 2  # Count SOS and EOS
     def addSentence(self, sentence):
@@ -117,11 +122,28 @@ def pre_process_hindi_sentence(line):
     line = ' '.join(line)
     return (line)
 
-english_text = load_doc('english.txt')
-hindi_text = load_doc('hindi.txt')
+def prepareData(pairs):
+    input_lang = Lang('eng')
+    output_lang = Lang('hin')
+    for pair in pairs:
+        input_lang.addSentence(pair[0])
+        output_lang.addSentence(pair[1])
+    print("Counted words:")
+    print(input_lang.name, input_lang.word2index)
+    print(input_lang.name, input_lang.word2count)
+    print(input_lang.name, input_lang.index2word)
+    print(input_lang.name, input_lang.n_words)
+    print(output_lang.name, output_lang.word2index)
+    print(output_lang.name, output_lang.word2count)
+    print(output_lang.name, output_lang.index2word)
+    print(output_lang.name, output_lang.n_words)
+    return input_lang, output_lang, pairs
+
+english_text = load_doc('English')
+hindi_text = load_doc('Hindi')
 pairs = to_pairs(english_text, hindi_text)
-print (pairs)
-#clean_pairs = clean_pairs(pairs)
+input_lang, output_lang, pairs = prepareData(pairs)
+
 
 en_samples = []
 de_samples = []
