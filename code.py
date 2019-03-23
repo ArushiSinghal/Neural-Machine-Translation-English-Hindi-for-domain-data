@@ -17,6 +17,14 @@ import torch
 import torch.nn as nn
 from torch import optim
 import torch.nn.functional as F
+INDIC_NLP_LIB_HOME=r"/home/arushi/Neural-Machine-Translation/anoopkunchukuttan-indic_nlp_library-eccde81/src"
+INDIC_NLP_RESOURCES=r"/home/arushi/Neural-Machine-Translation/indic_nlp_resources-master"
+import sys
+sys.path.append(r'{}'.format(INDIC_NLP_LIB_HOME))
+from indicnlp import common
+common.set_resources_path(INDIC_NLP_RESOURCES)
+from indicnlp import loader
+loader.load()
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -55,7 +63,7 @@ def to_pairs(english_text, hindi_text):
     for i in range(len(hindi_lines)):
         pairs.append([])
         pairs[i].append(pre_process_english_sentence(english_lines[i]))
-        pairs[i].append(hindi_lines[i])
+        pairs[i].append(pre_process_hindi_sentence(hindi_lines[i]))
     return pairs
 
 def pre_process_english_sentence(line):
@@ -68,6 +76,11 @@ def pre_process_english_sentence(line):
     line = [word.translate(table) for word in line]
     line = [re_print.sub('', w) for w in line]
     line = [word for word in line if word.isalpha()]
+    line = ' '.join(line)
+    return line
+
+def pre_process_hindi_sentence(line):
+    line = line.split()
     line = ' '.join(line)
     return line
 
