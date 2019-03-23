@@ -3,6 +3,15 @@ import re
 from pickle import dump
 from unicodedata import normalize
 from numpy import array
+INDIC_NLP_LIB_HOME=r"/home/arushi/Neural-Machine-Translation/anoopkunchukuttan-indic_nlp_library-eccde81/src"
+INDIC_NLP_RESOURCES=r"/home/arushi/Neural-Machine-Translation/indic_nlp_resources-master"
+import sys
+sys.path.append(r'{}'.format(INDIC_NLP_LIB_HOME))
+from indicnlp import common
+common.set_resources_path(INDIC_NLP_RESOURCES)
+from indicnlp import loader
+loader.load()
+from indicnlp.normalize.indic_normalize import IndicNormalizerFactory
 
 def load_doc(filename):
     file = open(filename, mode='rt', encoding='utf-8')
@@ -17,8 +26,21 @@ def to_pairs(english_text, hindi_text):
     for i in range(len(hindi_lines)):
         pairs.append([])
         pairs[i].append(pre_process_english_sentence(english_lines[i]))
-        pairs[i].append(hindi_lines[i])
+        pairs[i].append(pre_process_hindi_sentence(hindi_lines[i]))
     return pairs
+
+def pre_process_hindi_sentence(line):
+    print (line)
+    remove_nuktas=False
+    factory=IndicNormalizerFactory()
+    normalizer=factory.get_normalizer("hi",remove_nuktas)
+    output_text=normalizer.normalize(line)
+    print (output_text)
+    #line = line.split()
+    #print (line)
+    #line = ' '.join(line)
+    #print (line)
+    return output_text
 
 def pre_process_english_sentence(line):
     re_print = re.compile('[^%s]' % re.escape(string.printable))
@@ -37,4 +59,4 @@ english_text = load_doc('English')
 hindi_text = load_doc('Hindi')
 #hindi_text = load_doc('French.txt')
 pairs = to_pairs(english_text, hindi_text)
-print (pairs)
+#print (pairs)
