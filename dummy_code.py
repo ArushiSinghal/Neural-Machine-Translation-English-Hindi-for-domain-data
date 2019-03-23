@@ -12,6 +12,8 @@ common.set_resources_path(INDIC_NLP_RESOURCES)
 from indicnlp import loader
 loader.load()
 from indicnlp.normalize.indic_normalize import IndicNormalizerFactory
+from indicnlp.tokenize import indic_tokenize
+
 
 def load_doc(filename):
     file = open(filename, mode='rt', encoding='utf-8')
@@ -29,18 +31,23 @@ def to_pairs(english_text, hindi_text):
         pairs[i].append(pre_process_hindi_sentence(hindi_lines[i]))
     return pairs
 
-def pre_process_hindi_sentence(line):
-    print (line)
-    remove_nuktas=False
-    factory=IndicNormalizerFactory()
-    normalizer=factory.get_normalizer("hi",remove_nuktas)
-    output_text=normalizer.normalize(line)
-    print (output_text)
-    #line = line.split()
-    #print (line)
-    #line = ' '.join(line)
-    #print (line)
-    return output_text
+def clean_text(line):
+    text = line
+    text=text.replace(u',','')
+    text=text.replace(u'"','')
+    text=text.replace(u'(','')
+    text=text.replace(u')','')
+    text=text.replace(u'"','')
+    text=text.replace(u':','')
+    text=text.replace(u"'",'')
+    text=text.replace(u"‘‘",'')
+    text=text.replace(u"’’",'')
+    text=text.replace(u"''",'')
+    text=text.replace(u".",'')
+    text=text.replace(u"-",'')
+    text=text.replace(u"।",'')
+    text=text.replace(u"?",'')
+    return text
 
 def pre_process_english_sentence(line):
     re_print = re.compile('[^%s]' % re.escape(string.printable))
@@ -54,6 +61,24 @@ def pre_process_english_sentence(line):
     line = [word for word in line if word.isalpha()]
     line = ' '.join(line)
     return line
+
+def pre_process_hindi_sentence(line):
+    print (line)
+    remove_nuktas=False
+    factory=IndicNormalizerFactory()
+    normalizer=factory.get_normalizer("hi",remove_nuktas)
+    line=normalizer.normalize(line)
+    line=clean_text(line)
+    tokens = list()
+    for t in indic_tokenize.trivial_tokenize(line):
+        tokens.append(t)
+    line = tokens
+    line = [word.lower() for word in line]
+    line = [word for word in line if not re.search(r'\d', word)]
+    line = ' '.join(line)
+    print (line)
+    return (line)
+
 
 english_text = load_doc('English')
 hindi_text = load_doc('Hindi')
