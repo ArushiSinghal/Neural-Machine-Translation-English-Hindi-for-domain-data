@@ -84,6 +84,9 @@ def clean_text(line):
     text=text.replace(u"-",'')
     text=text.replace(u"।",'')
     text=text.replace(u"?",'')
+    text=text.replace(u"\\",'')
+    text=text.replace(u"_",'')
+    text=re.sub('[a-zA-Z]', '', text)
     return text
 
 def pre_process_english_sentence(line):
