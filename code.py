@@ -115,7 +115,6 @@ def pre_process_hindi_sentence(line):
     line = [word.lower() for word in line]
     line = [word for word in line if not re.search(r'\d', word)]
     line = ' '.join(line)
-    print (line)
     return (line)
 
 english_text = load_doc('english.txt')
