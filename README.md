@@ -27,7 +27,8 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 
 # Hindi text Normalization
 
-http://talukdar.net/papers/KBCS04_HPL-1.pdf
+1) http://talukdar.net/papers/KBCS04_HPL-1.pdf
+2) https://medium.com/lingvo-masino/do-you-know-about-text-normalization-a19fe3090694
 
 
 
