@@ -26,6 +26,7 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 13) https://www.coursera.org/learn/nlp-sequence-models/lecture/ftkzt/recurrent-neural-network-model
 14) https://machinelearningmastery.com/encoder-decoder-attention-sequence-to-sequence-prediction-keras/ (important)
 15) https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html
+16) https://github.com/bentrevett/pytorch-seq2seq/blob/master/1%20-%20Sequence%20to%20Sequence%20Learning%20with%20Neural%20Networks.ipynb
 
 # Hindi text Normalization
 
