@@ -36,7 +36,7 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 # The IIT Bombay English-Hindi Parallel Corpus
 https://www.cse.iitb.ac.in/~pb/papers/lrec18-iitbparallel.pdf
 
-
-
+# Dataset Link
+http://10.3.1.91/~datashare/wat/
 
 
