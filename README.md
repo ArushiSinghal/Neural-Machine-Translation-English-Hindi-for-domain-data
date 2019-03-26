@@ -39,4 +39,6 @@ https://www.cse.iitb.ac.in/~pb/papers/lrec18-iitbparallel.pdf
 # Dataset Link
 http://10.3.1.91/~datashare/wat/
 
+# Document Link to the Errors found in the Dataset
+https://docs.google.com/document/d/1zz67TTlVi0YuH7zUjD3up4O_7qKd8lCtElhxcH1bMWk/edit
 
