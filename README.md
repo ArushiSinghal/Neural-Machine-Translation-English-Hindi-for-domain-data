@@ -33,6 +33,10 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 1) http://talukdar.net/papers/KBCS04_HPL-1.pdf
 2) https://medium.com/lingvo-masino/do-you-know-about-text-normalization-a19fe3090694
 
+# The IIT Bombay English-Hindi Parallel Corpus
+https://www.cse.iitb.ac.in/~pb/papers/lrec18-iitbparallel.pdf
+
+
 
 
 
