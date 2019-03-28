@@ -12,10 +12,44 @@ import unicodedata
 import string
 import re
 import random
+import random
+import math
+import os
+import time
 import torch
 import torch.nn as nn
 from torch import optim
+import spacy
 import torch.nn.functional as F
+from pickle import dump
+from unicodedata import normalize
+from numpy import array
+from pickle import load
+from numpy import array
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.utils import to_categorical
+from keras.utils.vis_utils import plot_model
+from keras.models import Sequential
+from keras.layers import LSTM
+from keras.layers import Dense
+from keras.layers import Embedding
+from keras.layers import RepeatVector
+from keras.layers import TimeDistributed
+from keras.callbacks import ModelCheckpoint
+from pickle import load
+from pickle import dump
+from numpy.random import rand
+from numpy.random import shuffle
+import string
+import re
+
+SEED = 1
+random.seed(SEED)
+torch.manual_seed(SEED)
+torch.backends.cudnn.deterministic = True
+
+
 INDIC_NLP_LIB_HOME=r"/home/arushi/Neural-Machine-Translation/anoopkunchukuttan-indic_nlp_library-eccde81/src"
 INDIC_NLP_RESOURCES=r"/home/arushi/Neural-Machine-Translation/indic_nlp_resources-master"
 import sys
@@ -92,6 +126,7 @@ def clean_text(line):
     text=text.replace(u"\\",'')
     text=text.replace(u"_",'')
     text=re.sub('[a-zA-Z]', '', text)
+    text=re.sub('[0-9+\-*/.%]', '', text)
     return text
 
 def pre_process_english_sentence(line):
@@ -104,6 +139,7 @@ def pre_process_english_sentence(line):
     line = [word.translate(table) for word in line]
     line = [re_print.sub('', w) for w in line]
     line = [word for word in line if word.isalpha()]
+    #line.reverse()
     line = ' '.join(line)
     return line
 
@@ -128,47 +164,41 @@ def prepareData(pairs):
     for pair in pairs:
         input_lang.addSentence(pair[0])
         output_lang.addSentence(pair[1])
-    print("Counted words:")
-    print(input_lang.name, input_lang.word2index)
-    print(input_lang.name, input_lang.word2count)
-    print(input_lang.name, input_lang.index2word)
-    print(input_lang.name, input_lang.n_words)
-    print(output_lang.name, output_lang.word2index)
-    print(output_lang.name, output_lang.word2count)
-    print(output_lang.name, output_lang.index2word)
-    print(output_lang.name, output_lang.n_words)
-    return input_lang, output_lang, pairs
+    return input_lang, output_lang
+
+def save_clean_data(sentences, filename):
+    dump(sentences, open(filename, 'wb'))
+    print('Saved: %s' % filename)
+
+def load_clean_sentences(filename):
+    return load(open(filename, 'rb'))
+
+def create_tokenizer(lines):
+    tokenizer = Tokenizer()
+    tokenizer.fit_on_texts(lines)
+    return tokenizer
+
+def max_length(lines):
+    return max(len(line.split()) for line in lines)
+
+def encode_sequences(tokenizer, length, lines):
+    # integer encode sequences
+    X = tokenizer.texts_to_sequences(lines)
+    # pad sequences with 0 values
+    X = pad_sequences(X, maxlen=length, padding='post')
+    return X
+
+def encode_output(sequences, vocab_size):
+    ylist = list()
+    for sequence in sequences:
+        encoded = to_categorical(sequence, num_classes=vocab_size)
+        ylist.append(encoded)
+    y = array(ylist)
+    y = y.reshape(sequences.shape[0], sequences.shape[1], vocab_size)
+    return y
 
 english_text = load_doc('English')
 hindi_text = load_doc('Hindi')
 pairs = to_pairs(english_text, hindi_text)
-input_lang, output_lang, pairs = prepareData(pairs)
-
-
-en_samples = []
-de_samples = []
-
-# Define impty sets to store the characters in them:
-en_chars = set()
-de_chars = set()
-
-# Split the samples and get the character sets :
-for line in text:
-    en_ , de_ = line.split('\t')
-    de_ = '\t' + de_
-    print (en_)
-    print (de_)
-    for char in de_:
-        if char not in de_chars:
-            de_chars.add(char)
-    for char in en_:
-        if char not in en_chars:
-            en_chars.add(char)
-    en_samples.append(en_)
-    de_samples.append(de_)
-
-de_chars.add('\n')
-de_chars.add('\t')
-
-en_chars.add('\n')
-en_chars.add('\t') 
+save_clean_data(clean_pairs, 'english-hindi.pkl')
+input_lang, output_lang = prepareData(pairs)
