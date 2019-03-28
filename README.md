@@ -42,3 +42,5 @@ http://10.3.1.91/~datashare/wat/
 # Document Link to the Errors found in the Dataset
 https://docs.google.com/document/d/1zz67TTlVi0YuH7zUjD3up4O_7qKd8lCtElhxcH1bMWk/edit
 
+# Data Generator
+https://stanford.edu/~shervine/blog/keras-how-to-generate-data-on-the-fly
