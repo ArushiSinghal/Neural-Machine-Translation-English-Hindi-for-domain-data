@@ -44,3 +44,6 @@ https://docs.google.com/document/d/1zz67TTlVi0YuH7zUjD3up4O_7qKd8lCtElhxcH1bMWk/
 
 # Data Generator
 https://stanford.edu/~shervine/blog/keras-how-to-generate-data-on-the-fly
+
+# Pytorch Neural Network Colab link got through flow group
+https://colab.research.google.com/drive/1DgkVmi6GksWOByhYVQpyUB4Rk3PUq0Cp?fbclid=IwAR076PTAKeD99mN-htpMxCY4FaJNadF_OfCNry02rBwwixadJ-n1rygnW7I#scrollTo=6Q1AhoIB-pkp
