@@ -47,3 +47,6 @@ https://stanford.edu/~shervine/blog/keras-how-to-generate-data-on-the-fly
 
 # Pytorch Neural Network Colab link got through flow group
 https://colab.research.google.com/drive/1DgkVmi6GksWOByhYVQpyUB4Rk3PUq0Cp?fbclid=IwAR076PTAKeD99mN-htpMxCY4FaJNadF_OfCNry02rBwwixadJ-n1rygnW7I#scrollTo=6Q1AhoIB-pkp
+
+# Anaconda installation
+https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
