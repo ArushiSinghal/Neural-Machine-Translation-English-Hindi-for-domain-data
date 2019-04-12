@@ -50,3 +50,6 @@ https://colab.research.google.com/drive/1DgkVmi6GksWOByhYVQpyUB4Rk3PUq0Cp?fbclid
 
 # Anaconda installation
 https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
+
+# Multiple GPUs
+https://www.pyimagesearch.com/2017/10/30/how-to-multi-gpu-training-with-keras-python-and-deep-learning/
