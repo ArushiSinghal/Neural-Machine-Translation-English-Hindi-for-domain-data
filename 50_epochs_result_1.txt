@@ -1,0 +1,460 @@
+Using TensorFlow backend.
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            (None, None)         0                                            
+__________________________________________________________________________________________________
+embedding_1 (Embedding)         (None, None, 300)    9147900     input_1[0][0]                    
+__________________________________________________________________________________________________
+time_distributed_1 (TimeDistrib (None, None, 300)    0           embedding_1[0][0]                
+__________________________________________________________________________________________________
+lstm_1 (LSTM)                   (None, None, 50)     70200       time_distributed_1[0][0]         
+__________________________________________________________________________________________________
+input_2 (InputLayer)            (None, None)         0                                            
+__________________________________________________________________________________________________
+lstm_2 (LSTM)                   (None, None, 50)     20200       lstm_1[0][0]                     
+__________________________________________________________________________________________________
+embedding_2 (Embedding)         (None, None, 300)    11870100    input_2[0][0]                    
+__________________________________________________________________________________________________
+lstm_3 (LSTM)                   (None, None, 50)     20200       lstm_2[0][0]                     
+__________________________________________________________________________________________________
+time_distributed_2 (TimeDistrib (None, None, 300)    0           embedding_2[0][0]                
+__________________________________________________________________________________________________
+lstm_4 (LSTM)                   [(None, 50), (None,  20200       lstm_3[0][0]                     
+__________________________________________________________________________________________________
+lstm_5 (LSTM)                   (None, None, 50)     70200       time_distributed_2[0][0]         
+                                                                 lstm_4[0][1]                     
+                                                                 lstm_4[0][2]                     
+__________________________________________________________________________________________________
+lstm_6 (LSTM)                   [(None, None, 50), ( 20200       lstm_5[0][0]                     
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, None, 39567)  2017917     lstm_6[0][0]                     
+==================================================================================================
+Total params: 23,257,117
+Trainable params: 23,257,117
+Non-trainable params: 0
+__________________________________________________________________________________________________
+
+Epoch 1/50
+999/999 [==============================] - 1711s 2s/step - loss: 6.8494 - acc: 0.0995 - val_loss: 6.3929 - val_acc: 0.1375
+Epoch 2/50
+999/999 [==============================] - 1706s 2s/step - loss: 6.2107 - acc: 0.1530 - val_loss: 6.1421 - val_acc: 0.1654
+Epoch 3/50
+999/999 [==============================] - 1706s 2s/step - loss: 5.9478 - acc: 0.1758 - val_loss: 5.9729 - val_acc: 0.1812
+Epoch 4/50
+999/999 [==============================] - 1707s 2s/step - loss: 5.7692 - acc: 0.1909 - val_loss: 5.8695 - val_acc: 0.1928
+Epoch 5/50
+999/999 [==============================] - 1707s 2s/step - loss: 5.6358 - acc: 0.2035 - val_loss: 5.7884 - val_acc: 0.2011
+Epoch 6/50
+999/999 [==============================] - 1705s 2s/step - loss: 5.5210 - acc: 0.2134 - val_loss: 5.7377 - val_acc: 0.2068
+Epoch 7/50
+999/999 [==============================] - 1705s 2s/step - loss: 5.4248 - acc: 0.2221 - val_loss: 5.6784 - val_acc: 0.2127
+Epoch 8/50
+999/999 [==============================] - 1705s 2s/step - loss: 5.3368 - acc: 0.2308 - val_loss: 5.6521 - val_acc: 0.2186
+Epoch 9/50
+999/999 [==============================] - 1705s 2s/step - loss: 5.2864 - acc: 0.2377 - val_loss: 5.6542 - val_acc: 0.2220
+Epoch 10/50
+999/999 [==============================] - 1706s 2s/step - loss: 5.2417 - acc: 0.2440 - val_loss: 5.6306 - val_acc: 0.2234
+Epoch 11/50
+999/999 [==============================] - 1704s 2s/step - loss: 5.1757 - acc: 0.2505 - val_loss: 5.6165 - val_acc: 0.2280
+Epoch 12/50
+999/999 [==============================] - 1707s 2s/step - loss: 5.1367 - acc: 0.2564 - val_loss: 5.6238 - val_acc: 0.2307
+Epoch 13/50
+999/999 [==============================] - 1705s 2s/step - loss: 5.1130 - acc: 0.2623 - val_loss: 5.6441 - val_acc: 0.2323
+Epoch 14/50
+999/999 [==============================] - 1707s 2s/step - loss: 5.0996 - acc: 0.2678 - val_loss: 5.6531 - val_acc: 0.2350
+Epoch 15/50
+999/999 [==============================] - 1707s 2s/step - loss: 5.0748 - acc: 0.2721 - val_loss: 5.6448 - val_acc: 0.2373
+Epoch 16/50
+999/999 [==============================] - 1707s 2s/step - loss: 5.0565 - acc: 0.2778 - val_loss: 5.6688 - val_acc: 0.2385
+Epoch 17/50
+365/999 [=========>....................] - ETA: 16:58 - loss: 5.0583 - acc: 0.2814
+999/999 [==============================] - 1708s 2s/step - loss: 5.0548 - acc: 0.2826 - val_loss: 5.6856 - val_acc: 0.2408
+Epoch 18/50
+999/999 [==============================] - 1708s 2s/step - loss: 5.0405 - acc: 0.2861 - val_loss: 5.6795 - val_acc: 0.2404
+Epoch 19/50
+999/999 [==============================] - 1706s 2s/step - loss: 5.0188 - acc: 0.2904 - val_loss: 5.6985 - val_acc: 0.2420
+Epoch 20/50
+999/999 [==============================] - 1707s 2s/step - loss: 5.0104 - acc: 0.2943 - val_loss: 5.7040 - val_acc: 0.2428
+Epoch 21/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.9957 - acc: 0.2983 - val_loss: 5.7092 - val_acc: 0.2416
+Epoch 22/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.9741 - acc: 0.3021 - val_loss: 5.7042 - val_acc: 0.2429
+Epoch 23/50
+999/999 [==============================] - 1708s 2s/step - loss: 4.9491 - acc: 0.3054 - val_loss: 5.6972 - val_acc: 0.2434
+Epoch 24/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.9245 - acc: 0.3084 - val_loss: 5.6989 - val_acc: 0.2437
+Epoch 25/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.9027 - acc: 0.3117 - val_loss: 5.7015 - val_acc: 0.2433
+Epoch 26/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.8800 - acc: 0.3152 - val_loss: 5.6965 - val_acc: 0.2442
+Epoch 27/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.8586 - acc: 0.3186 - val_loss: 5.6970 - val_acc: 0.2452
+Epoch 28/50
+999/999 [==============================] - 1708s 2s/step - loss: 4.8392 - acc: 0.3218 - val_loss: 5.7004 - val_acc: 0.2442
+Epoch 29/50
+999/999 [==============================] - 1708s 2s/step - loss: 4.8202 - acc: 0.3249 - val_loss: 5.7059 - val_acc: 0.2446
+Epoch 30/50
+999/999 [==============================] - 1705s 2s/step - loss: 4.8033 - acc: 0.3277 - val_loss: 5.7059 - val_acc: 0.2449
+Epoch 31/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.7873 - acc: 0.3305 - val_loss: 5.7135 - val_acc: 0.2443
+Epoch 32/50
+999/999 [==============================] - 1705s 2s/step - loss: 4.7722 - acc: 0.3330 - val_loss: 5.7242 - val_acc: 0.2450
+Epoch 33/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.7563 - acc: 0.3349 - val_loss: 5.7118 - val_acc: 0.2453
+Epoch 34/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.7365 - acc: 0.3371 - val_loss: 5.7179 - val_acc: 0.2455
+Epoch 35/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.7197 - acc: 0.3398 - val_loss: 5.7216 - val_acc: 0.2446
+Epoch 36/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.7044 - acc: 0.3421 - val_loss: 5.7352 - val_acc: 0.2433
+Epoch 37/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.6915 - acc: 0.3446 - val_loss: 5.7329 - val_acc: 0.2444
+Epoch 38/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.6793 - acc: 0.3465 - val_loss: 5.7446 - val_acc: 0.2446
+Epoch 39/50
+999/999 [==============================] - 1708s 2s/step - loss: 4.6672 - acc: 0.3487 - val_loss: 5.7476 - val_acc: 0.2446
+Epoch 40/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.6561 - acc: 0.3511 - val_loss: 5.7665 - val_acc: 0.2439
+Epoch 41/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.6448 - acc: 0.3533 - val_loss: 5.7647 - val_acc: 0.2443
+Epoch 42/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.6328 - acc: 0.3550 - val_loss: 5.7671 - val_acc: 0.2432
+Epoch 43/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.6205 - acc: 0.3578 - val_loss: 5.7770 - val_acc: 0.2441
+Epoch 44/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.6110 - acc: 0.3597 - val_loss: 5.7701 - val_acc: 0.2453
+Epoch 45/50
+999/999 [==============================] - 1708s 2s/step - loss: 4.5999 - acc: 0.3618 - val_loss: 5.7843 - val_acc: 0.2441
+Epoch 46/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.5891 - acc: 0.3633 - val_loss: 5.7865 - val_acc: 0.2451
+Epoch 47/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.5777 - acc: 0.3654 - val_loss: 5.7922 - val_acc: 0.2432
+Epoch 48/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.5685 - acc: 0.3671 - val_loss: 5.7991 - val_acc: 0.2448
+Epoch 49/50
+999/999 [==============================] - 1706s 2s/step - loss: 4.5598 - acc: 0.3685 - val_loss: 5.8033 - val_acc: 0.2436
+Epoch 50/50
+999/999 [==============================] - 1707s 2s/step - loss: 4.5486 - acc: 0.3699 - val_loss: 5.8016 - val_acc: 0.2446
+
+Input English sentence: phulkari geometric samples stripes of jhumko and mat like patterns have been embossed on the outer walls
+Actual Marathi Translation:  बाहरी दीवारों पर फुलकारी ज्यामितिक नमूने झुमको की पट्टियाँ तथा चटाई जैसे अलंकरण उकेरे गए हैं 
+Predicted Marathi Translation:  है क्योंकि एक बार से एक से एक में से एक से एक मे
+Input English sentence: in savasana lrb yoga sleep rrb lie down straight on the back on the ground
+Actual Marathi Translation:  शवासन योगनिद्रा में पीठ के बल सीधे भूमि पर लेट जायें 
+Predicted Marathi Translation:  दिन में एक भी एक से एक से एक में से एक से एक मे
+Input English sentence: the maternal and child health department of health and family welfare department is that central department which has the complete responsibility of the implementation of program
+Actual Marathi Translation:  स्वास्थ्य एवं परिवार कल्याण विभाग का मातॄ एवं शिशु स्वास्थ्य प्रभाग वह केन्द्रीय विभाग है जिस पर कार्यक्रम को लागू करने की पूरी जिम्मेदारी होती है 
+Predicted Marathi Translation:  स्वास्थ्य से एक कम से भी एक की कम में एक से एक
+Input English sentence: in olden times gadsisar lake used to be the chief water source of jaisalmer residents
+Actual Marathi Translation:  पुराने समय में गड़सीसर झील जैसलमेर वासियों का मुख्य जलस्रोत हुआ करती थी 
+Predicted Marathi Translation:  के इस की समय एक बार से एक से की कम से एक से एक
+Input English sentence: because of these wounds and injuries a specific kind of fluid gets stored in the arteries
+Actual Marathi Translation:  इन घावों और जख्मों की वजह से धमनियों में विशिष्ट प्रकार का द्रव्य जम जाता है 
+Predicted Marathi Translation:  इन तेल एक बार जाँच से एक से एक में से एक से एक
+Input English sentence: by this method repeat this exercise by fiveseven times
+Actual Marathi Translation:  इस रीति से पाँच सात बार इस अभ्यास को दोहरायें 
+Predicted Marathi Translation:  इस एक और एक कम से एक से एक में से एक से एक में स
+Input English sentence: the experience of watching katthak bharat natyam odyssey kuchipudi manipuri and kathakali in the temple complex is quite different
+Actual Marathi Translation:  मंदिर परिसर में कत्थक भरत नाट्यम ओडिसी कुचिपुड़ी मणिपुरी व कत्थकली देखने का अनुभव ही कुछ अलग है 
+Predicted Marathi Translation:  मंदिर में और दो से एक में से एक से एक में से ए
+Input English sentence: if a white glimpse is visible to you in the child s eye then it can be congenital white cataract or eye cancer lrb retinoblestoma rrb or some other severe eye disorder
+Actual Marathi Translation:  इससे आपको कोलेस्ट्रॉल व हार्ट से जुड़ी बीमारी नहीं होगी 
+Predicted Marathi Translation:  अगर एक एक से एक से एक में से से एक से एक में स
+Input English sentence: water provides flexibility to cushions of joints of bones that provide transfusion
+Actual Marathi Translation:  जल हड्डियों के जोड़ों का आधान प्रदान वाली गद्दियों को लचीलापन प्रदान करता है 
+Predicted Marathi Translation:  एक एक प्रकार से एक से एक से एक में से एक में स
+Input English sentence: all the iron chain bridges built in the th century in bhutan is the contribution of this lama engineer
+Actual Marathi Translation:  भूटान में वीं सदी में बने सारे लौहजंजीर पुल इसी लामा इंजीनियर की देन हैं 
+Predicted Marathi Translation:  वीं में एक कम से एक से एक में से एक से एक में स
+Input English sentence: when this falls low then nutritional elements are not digested properly
+Actual Marathi Translation:  जब यह धीमी पड़ जाती है तो पोषक तत्त्व ठीक से नहीं पचाये जाते 
+Predicted Marathi Translation:  जब भी की कम से एक से एक से एक में से एक से एक मे
+Input English sentence: along with private and public bus service private taxi can be found all the time
+Actual Marathi Translation:  प्राइवेट और सरकारी बस सेवा के साथ प्राइवेट टैक्सी हर समय मिल जाती है 
+Predicted Marathi Translation:  यहाँ में एक भी से भी से की कम भी से एक में से ए
+Input English sentence: the special thing is that in the above mentioned studies no effect of flaxseed was observed on the fine cholestrol ldl or trigliserid
+Actual Marathi Translation:  खास बात ये है कि उक्त अध्ययनों में अलसी का अच्छे कोलेस्ट्रॉल एचडीएल या ट्राइग्लिसरॉइड पर कोई प्रभाव नहीं पड़ा 
+Predicted Marathi Translation:  जा दें इस के समय से एक में से एक से एक में से ए
+Input English sentence: because of this they continue being tensed even in the absence of any special problem
+Actual Marathi Translation:  इसके कारण कोई विशेष समस्या न होते हुए भी वो परेशान रहने लगते हैं 
+Predicted Marathi Translation:  इस हैं कि एक प्रतिशत और एक भी के भी से एक में स
+Input English sentence: in gulabkoti chatti miles ahead at small kumbharchatti in the fields is house of a grocer and miles ahead is greater kumbharchatti
+Actual Marathi Translation:  गुलाबकोटी चट्टी में मील आगे छोटी कुँभारचट्टी पर मैदान में मोदी का मकान और मील आगे बढ़ी कुँभारचट्टी है 
+Predicted Marathi Translation:  में के एक और एक में से एक से एक में से एक से एक
+Input English sentence: details of some important symptoms are given below
+Actual Marathi Translation:  कुछ महत्वपूर्ण लक्षणों का विवरण नीचे दिया जा रहा है 
+Predicted Marathi Translation:  कुछ दूर से दो की कम से एक से एक में से एक कम स
+Input English sentence: this substance is amino acid named homocystin which is four times more sticky substance than cholesterol
+Actual Marathi Translation:  यह तत्व है होमोसिस्टीन नामक एमिनो एसिड जो कॉलेस्ट्रॉल से चार गुना ज्यादा चिपचिपा पदार्थ है 
+Predicted Marathi Translation:  यह एक औषधि से एक से एक में से एक से एक में से ए
+Input English sentence: they start given anaesthesia when cervix has open to centimetres
+Actual Marathi Translation:  एनेस्थीसिया देना तब शुरू करते हैं जब सर्विक्स गर्भाशय से सेंटीमीटर खुल जाए 
+Predicted Marathi Translation:  जा के समय से की एक भी से भी में से एक से प्रतिश
+Input English sentence: the legacy of this area has been preserved in the museum located here
+Actual Marathi Translation:  शिलांग की स्टेट सेंट्रल लाइब्रेरी में पाठकों के लिए पुस्तकों का खजाना है 
+Predicted Marathi Translation:  यदि की एक भी से भी दो की कम से एक से एक में से ए
+Input English sentence: the symptoms of pyria are
+Actual Marathi Translation:  पायरिया के लक्षण हैं 
+Predicted Marathi Translation:  के के से प्रतिशत भी में एक भी में भी की की कम स
+Input English sentence: a large quantity of vitamin mineral fiber and protein is found in peas
+Actual Marathi Translation:  मटर में काफी मात्रा में विटामिन मिनरल्स फाइबर और प्रोटीन पाया जाता है 
+Predicted Marathi Translation:  एवं यह भी से भी में से एक से एक में से एक कम स
+Input English sentence: when stones enter the ureter then its gets stuck there itself or slowly starts entering the urinary bladder
+Actual Marathi Translation:  पथरी जब मूत्र प्रणाली में उतर आती है तो वहीं अड़ जाती है या धीरेधीरे मूत्राशय में प्रवेश करने लगती है 
+Predicted Marathi Translation:  जब भी किया ही की भी कम से एक से एक में से एक स
+Input English sentence: the camp of their masters huns was also nearby
+Actual Marathi Translation:  इनके स्वामी हुणियों का डेरा भी पास ही था 
+Predicted Marathi Translation:  यहाँ कम से एक से प्रतिशत भी और से एक से एक में स
+Input English sentence: there are many tourist places on the southern coastal regions of jamaica as well
+Actual Marathi Translation:  इसके एक ओर सैंड बीच है तो दूसरी ओर मूँगे की चट्टानें हैं 
+Predicted Marathi Translation:  कई में से एक से एक में से एक में से एक से एक मे
+Input English sentence: a feet long tunnel parallel to puppet house runs till the chowk of vilaas temple
+Actual Marathi Translation:  कठपुतलीघर के समान्तर एक फीट लम्बी सुरंग विलास मन्दिर के चौक तक जाती है 
+Predicted Marathi Translation:  की में एक से एक में से एक से एक में से एक से एक
+Input English sentence: chachai and keoti waterfalls are situated on the banks of the bihad river
+Actual Marathi Translation:  चाचाई और केओटी झरना बीहाद नदी के तट पर स्थित है 
+Predicted Marathi Translation:  साथ में एक कम से एक से एक में से एक से एक में स
+Input English sentence: the cave is about kilometres long
+Actual Marathi Translation:  गुफा लगभग किलोमीटर लंबी है 
+Predicted Marathi Translation:  मंदिर से एक की कम में एक कम से एक से एक में से ए
+Input English sentence: due to the reactivity of oxygen many harmful compounds are formed
+Actual Marathi Translation:  ऑक्सीजन की क्रियाशीलता से अनेक हानिकारक कम्पाउन्ड बनते हैं 
+Predicted Marathi Translation:  कई बार ही भी से एक में से एक से एक में से एक स
+Input English sentence: the foundation of the health of the child starts from the pregnancy itself
+Actual Marathi Translation:  शिशु स्वास्थ्य की नींव गर्भावस्था में ही प्रारम्भ हो जाती है 
+Predicted Marathi Translation:  बच्चे से एक से एक में से एक से एक में से एक से एक
+Input English sentence: the essence or brew of fennel in the amount mentioned above by drinking every two hours digests the aam lrb aao rrb
+Actual Marathi Translation:  सौंफ का अर्क या काढ़ा ऊपर बताई गई मात्रा में घण्टे से दिन भर पीने से आम आँव का पाचन हो जाता है 
+Predicted Marathi Translation:  और की भी से की कम से एक से एक में से एक से एक मे
+Input English sentence: the golden monkey here is very attractive
+Actual Marathi Translation:  यहाँ के सुनहरे लंगूर तो बहुत ही आकर्षक हैं 
+Predicted Marathi Translation:  यहाँ के से एक से एक में से एक से एक में से एक स
+Input English sentence: the function occurring this year would be the first festival of this century
+Actual Marathi Translation:  इस वर्ष होने वाला आयोजन इस सदी का पहला समारोह होगा 
+Predicted Marathi Translation:  इस से प्रतिशत भी दो में से एक से एक में से एक स
+Input English sentence: dudaenum is the first part of the small intestine
+Actual Marathi Translation:  ड्यूडेनम छोटी आँत का प्रथम भाग है 
+Predicted Marathi Translation:  आमतौर में एक कम से भी से एक से एक में से एक से एक
+Input English sentence: its distinct place has formed in goa s tourist circuit
+Actual Marathi Translation:  इसकी गोवा के पर्यटन सर्किट में अलग जगह बन गई है 
+Predicted Marathi Translation:  यहाँ भी से भी में से एक से प्रतिशत भी से एक से एक
+Input English sentence: in electricity came roads were built and now an air strip is also made here
+Actual Marathi Translation:  में बिजली आयी सड़कें बनीं और अब एक वायु पट्टी भी यहाँ बनी है 
+Predicted Marathi Translation:  व एक भी और एक से एक में से एक से एक में से एक स
+Input English sentence: first one has to go to sangdaah lrb km rrb
+Actual Marathi Translation:  पहले संगडाह किमी जाना होगा 
+Predicted Marathi Translation:  एक भी की एक भी से भी में से एक से एक में से एक क
+Input English sentence: telling their glorious past to the guests coming although in mute voice these witnesses surprise hypnotise them in such a way that a person coming here once gets inclined to come here again
+Actual Marathi Translation:  ये साक्षी आने वाले मेहमानों को अपना गौरवशाली अतीत मौन स्वर में ही सही बताकर ऐसा चमत्कृतसम्मोहित कर देते हैं कि यहाँ एकबार आने वाला बारबार आने के लिए विवश सा हो जाता है 
+Predicted Marathi Translation:  इस से प्रतिशत भी में से एक से एक में से एक से एक
+Input English sentence: nose gets blocked again and again due to cold zukam then patient clears his nose again and again
+Actual Marathi Translation:  जुकाम के कारण बारबार नाक बंद होने लगती है तो रोगी बारबार नाक साफ करता है 
+Predicted Marathi Translation:  शरीर पाया जाता हैं और एक समय से एक में से एक क
+Input English sentence: one can not go sight seeing here on foot
+Actual Marathi Translation:  पैदल यहाँ नहीं घूमा जा सकता 
+Predicted Marathi Translation:  यहाँ में एक भी से भी में से एक से एक में से एक क
+Input English sentence: after this you will get saved from expense of churna medicines forever
+Actual Marathi Translation:  इसके बाद चूर्ण दवाइयों के खर्च से हमेशा के लिए बच जाएँगे 
+Predicted Marathi Translation:  इसके से शरीर की बार ही एक से एक में से एक से ए
+Input English sentence: the importance of offerings in pehwa is like hardwar kashi and gaya cities
+Actual Marathi Translation:  पेहवा में पिण्डदान का महत्त्व हरिद्वार काशी तथा गया शहरों जैसा है 
+Predicted Marathi Translation:  भी एक कम से एक से एक में से एक से एक में से एक स
+Input English sentence: often drink water according to your constitution and in controlled amount
+Actual Marathi Translation:  प्रात अपनी प्रकृति के अनुसार व संयमित जल की मात्रा का ही सेवन करें 
+Predicted Marathi Translation:  हर की भी से एक में से एक से एक में से एक से एक
+Input English sentence: on not paying attention to the dry skin on the upper surface the dryness of the skin does the work of harming the natural beauty by reaching deep inside layer by layer
+Actual Marathi Translation:  ऊपरी सतह पर शुष्क त्वचा की ओर ध्यान न दिए जाने पर त्वचा की शुष्कता सतह दर सतह गहराई तक पहुँचते हुए स्वाभाविक खूबसूरती को नुकसान पहुँचाने का काम करती है 
+Predicted Marathi Translation:  यदि एक की कम से एक से एक में से एक से एक में स
+Input English sentence: on getting worms in the stomach by continuing eating apple before going to bed in days the worms come out with stool
+Actual Marathi Translation:  पेट में कीड़े होने पर रात को सोने से पहले सेब खाते रहने से दिन में कीड़े मल के साथ बाहर निकल जाते है 
+Predicted Marathi Translation:  पेट एक औषधि से से की कम भी से एक से एक में से ए
+Input English sentence: gargle with sun warmed green water prepared by sun rays and chromotherapy threefour times in a day
+Actual Marathi Translation:  सूर्य किरण और रंग चिकित्सा के माध्यम से तैयार हुए सूर्य तप्त हरे पानी से दिन में तीन चार बार कुल्ला करें 
+Predicted Marathi Translation:  सूर्य भी ही की से समय से एक से एक में से एक से एक
+Input English sentence: to gain control over these desire of intoxication is little difficult but not impossible
+Actual Marathi Translation:  नशे की इस तलब पर काबू पाना थोड़ा मुश्किल है पर नामुमकिन नहीं 
+Predicted Marathi Translation:  ’ में से प्रतिशत भी से भी से की कम भी से एक मे
+Input English sentence: weight should remain right in proportion to height of body
+Actual Marathi Translation:  शरीर की लंबाई के अनुपात में वजन सही रहना चाहिए 
+Predicted Marathi Translation:  शरीर में एक से एक में से एक में से एक से एक मे
+Input English sentence: tonic of mind entertainment to keep mind healthy it is necessary to charge battery of mind for this adopt means of entertainment
+Actual Marathi Translation:  मन का टॉनिक मनोरंजन मन को स्वस्थ रखने के लिए मन की बैटरी को चार्ज करना पड़ता है इसके लिए आप मनोरंजन करने के साधन अपनाएँ 
+Predicted Marathi Translation:  एक बार से एक से एक में से एक से एक में से एक क
+Input English sentence: statues of metal of gauri and parvati are there in the temple
+Actual Marathi Translation:  मंदिर में गौरी और पार्वती की धातु की मूर्तियाँ हैं 
+Predicted Marathi Translation:  मंदिर काफी कम से एक से एक में से एक से एक में स
+Input English sentence: according to studies if you remain in restlessness then the danger of your suffering from depression in the future becomes very less
+Actual Marathi Translation:  अध्ययन के मुताबिक अगर आप बेचैनी में रहते हैं तो भविष्य में आपके अवसाद से पीड़ित होने का खतरा काफी कम हो जाता है 
+Predicted Marathi Translation:  यदि की कम से एक से एक में से एक से एक में से ए
+Input English sentence: the distance of karle from mumbai through roadways is kms and from pune it is kms
+Actual Marathi Translation:  सड़क मार्ग से मुंबई से कार्ले की दूरी किमी और पूणे से किलोमीटर है 
+Predicted Marathi Translation:  से समय कम से एक से एक में से एक से एक में से ए
+Input English sentence: one range of the mountain range the baniyal pass has an important place in this valley the whole of the traffic of kashmir passes through this valley
+Actual Marathi Translation:  पर्वतमाला की एक श्रृंखला बनियाल पास इस घाटी में महत्त्वपूर्ण स्थान रखती है कश्मीर का समस्त यातायात इस घाटी से होकर गुजरता है 
+Predicted Marathi Translation:  यह में से एक से एक में से एक से एक में से एक स
+Input English sentence: seeing the life jacket after being seated arouses the feeling of safety
+Actual Marathi Translation:  सीट पर बैठने के बाद लाइफ जैकेट सामने देखकर सुरक्षा का अहसास जागता है 
+Predicted Marathi Translation:  जब भी और एक से एक में से एक से एक में से एक से एक
+Input English sentence: increase in heat
+Actual Marathi Translation:  गर्मी का बढ़ जाना 
+Predicted Marathi Translation:  अधिक की व्यक्ति से एक से एक में से एक कम से एक स
+Input English sentence: sometimes go for swimming as well
+Actual Marathi Translation:  कभीकभी स्विमिंग के लिए भी जाएँ 
+Predicted Marathi Translation:  कभीकभी की तरह भी से प्रतिशत ही एक से एक से एक मे
+Input English sentence: there are four groups of blood a ab and o any type of blood bank would require the blood donators of all these types
+Actual Marathi Translation:  मेरा रक्त समूह साधारण श्रेणी का है क्या मैं रक्तदान कर सकता हूँ 
+Predicted Marathi Translation:  अगर एक से एक में से एक से एक में से एक से एक मे
+Input English sentence: a strange emotion filled my heart
+Actual Marathi Translation:  एक विचित्र भावुकता से मेरा मन भर आया 
+Predicted Marathi Translation:  एक कम से एक से एक में से एक से एक में से एक से एक
+Input English sentence: the carving and wall paintings of karla cave hall has magnificent beauty
+Actual Marathi Translation:  कारला गुफा हाल की नक्कासी व भित्ति चित्र के अद्भुत सौन्दर्य लिए हुए है 
+Predicted Marathi Translation:  झील में एक भी एक भी शिशु से एक में से एक से एक
+Input English sentence: by this there is decrease in depression
+Actual Marathi Translation:  इससे डिप्रेशन में कमी आती है 
+Predicted Marathi Translation:  इसके एक कम से एक से एक में से एक से एक में से ए
+Input English sentence: aromathic produces dryness in intestines
+Actual Marathi Translation:  स्टिनायक रक्त विकार तथा नपुसकता पैदा करता है 
+Predicted Marathi Translation:  दूर में एक से एक में से एक से समय से एक से एक मे
+Input English sentence: all cities of italy rome florence milan genoa pisa venice etc are living examples of ancient and modern art culture knowledge science
+Actual Marathi Translation:  इटली के सभी शहर रोम फ्लोरेंस मिलान जेनोआ पीसा वेनिस आदि प्राचीन तथा अर्वाचीन कलासंस्कृति ज्ञानविज्ञान के जीवंत उदाहरण हैं 
+Predicted Marathi Translation:  राजस्थान भी की कम से एक से एक में से एक से एक मे
+Input English sentence: that is when the patient has his meal urge to go to the toilet arises such a patient has to go to the toilet again after early morning bowel movement action after having tea and breakfast etc
+Actual Marathi Translation:  अर्थात रोगी जब भोजन करता है शौच जाने की इच्छा हो जाती है ऐसे रोगी को प्रातः काल मलोत्सर्ग क्रिया के पश्चात चाय आदि नाश्ता करने के बाद पुनः शौच जाना पड़ता है 
+Predicted Marathi Translation:  इसलिए एक से एक में से एक से एक में से एक से एक
+Input English sentence: this is why he made a hunting place in his capital nagpur
+Actual Marathi Translation:  इसलिए उन्होंने अपनी राजधानी नागपुर में एक शिकारखाना बनाया था 
+Predicted Marathi Translation:  इसलिए एक से एक से एक में से एक से एक में से एक स
+Input English sentence: in this their temples clan temple clan deity attract us more towards themselves
+Actual Marathi Translation:  इसमें उनके मंदिर कुलमंदिर कुल देवता हमें अपनी ओर अधिक आकर्षित करते हैं 
+Predicted Marathi Translation:  इस ही से एक में से भी से एक से से एक से एक में स
+Input English sentence: not only this for light skin problems also like psoriasis and gerosis it is a beneficial reagent cure
+Actual Marathi Translation:  यही नहीं सोरियासिस और जेरोसिस जैसे हल्की त्वचा समस्याओं के लिए भी यह एक फायदेमंद प्रतिकारक उपाय है 
+Predicted Marathi Translation:  यदि भी से भी दो की कम से एक से एक में से एक से एक
+Input English sentence: one of them is kisli
+Actual Marathi Translation:  उनमें से एक किसली में है 
+Predicted Marathi Translation:  इस को होने से एक ही से एक से एक में से एक से एक
+Input English sentence: when i go somewhere then i really enjoy the popular things there and shopping
+Actual Marathi Translation:  जब मैं कहीं जाती हूँ तो वहाँ की पॉपुलर चीजों व शॉपिंग को खूब एंजॉय करती हूँ 
+Predicted Marathi Translation:  भर कम से एक से एक में से एक कम से एक से एक में स
+Input English sentence: it is good to get all the possible information from government departments of trustworthy travel agents before coming to munich
+Actual Marathi Translation:  म्यूनिख आने से पहले सरकारी विभाग या विश्वसनीय ट्रेवल एजेन्टों से हर संभव जानकारी ले लेना ठीक रहता है 
+Predicted Marathi Translation:  अपने घंटे से एक में एक में से एक से एक में से ए
+Input English sentence: now there are only ruins left in lodurva
+Actual Marathi Translation:  अब लोदुर्वा में सिर्फ अवशेष ही रह गए हैं 
+Predicted Marathi Translation:  अब भी एक भी हो जाता ’ एक में की भी से की कम भी स
+Input English sentence: in the surgery through endoscope the doctor puts an incision below the naval through which he puts the endoscope inside the belly
+Actual Marathi Translation:  दूरबीन द्वारा ऑपरेशन में डॉक्टर नाभि के नीचे छोटा चीरा लगाता है जिससे वह दूरबीन पेट के अन्दर डाल देता है 
+Predicted Marathi Translation:  एक से की भी से एक से एक में से एक से एक में से ए
+Input English sentence: another holy spot is the shrine of peer budhan ali shah that is the peer baba
+Actual Marathi Translation:  दूसरा तीर्थ स्थल पीर बुद्धन अली शाह यानी पीर बाबा की दरगाह है 
+Predicted Marathi Translation:  यह कम से एक से एक में से भी से एक से से एक से एक
+Input English sentence: low density cholesterol meaning ldc is also the result of deteriorating habits of food
+Actual Marathi Translation:  लो डेन्सिटी कोलेस्ट्रॉल कम घनत्व कोलेस्ट्रॉल यानी एलडीसी खानपान की बिगड़ती आदतों का ही परिणाम है 
+Predicted Marathi Translation:  यूनानी रोग से कम से एक से एक में से एक से एक मे
+Input English sentence: cauliflower of high fiber and low calorie is a favorite vegetable of winters
+Actual Marathi Translation:  हाई फाइबर और लो कैलोरी वाली फूलगोभी सर्दियों की पसंदीदा सब्जी है 
+Predicted Marathi Translation:  महिलाओं में एक भी में से एक से समय से एक से एक
+Input English sentence: innumerous devotees visit these temples
+Actual Marathi Translation:  असंख्य भक्त इन मंदिरों के दर्शन करते हैं 
+Predicted Marathi Translation:  इन रोग से कम से एक से एक में से एक से एक में स
+Input English sentence: diseases of brain jaundice cyst in the brain fatigue hysteria other diseases like rheumatism diphtheria diabetes having less food else fasting etc are main causes of bradycardia
+Actual Marathi Translation:  मस्तिष्क के रोग कमलबाय मस्तिष्क में रसौली थकावट हिस्टीरिया अन्य रोग जैसे गठिया डिफ्थीरिया मधुमेह कम भोजन करना अथवा उपवास करना आदि ब्रैडीकार्डिया के मुख्य कारण हैं 
+Predicted Marathi Translation:  बवासीर यह एक समय से एक से एक में से एक से एक मे
+Input English sentence: the skeletally challenged person also is made to learn movement
+Actual Marathi Translation:  नेत्रहीन व्यक्ति को लगभग एक कदम पीछे खड़ा होकर अपने साथी की बाँह पकड़नी चाहिए 
+Predicted Marathi Translation:  बहुत ही से भी से एक से से एक से एक में से एक स
+Input English sentence: the ancient history of bihar has remained very glorious and relevant
+Actual Marathi Translation:  बिहार का प्राचीन इतिहास अत्यंत गौरवपूर्ण एवं प्रासंगिक रहा है 
+Predicted Marathi Translation:  का समय से से एक से एक कम से एक से एक में से एक स
+Input English sentence: for active metabolism or reducing accumulated fats water is needed in a lot of quantity
+Actual Marathi Translation:  सक्रिय उपापचय या संग्रहित वसा को घटाने के लिए पानी की खूब सारी मात्रा की जरूरत होती है 
+Predicted Marathi Translation:  और एक बार से एक में से एक कम से एक से एक में स
+Input English sentence: feeling a pricking in the eyes watering and blinking and occurrence of pupil inflammation
+Actual Marathi Translation:  आँखों में चुभन महसूस होना पानी बहना और चौंध सी लगना तथा कनीनिका प्रदाह होना आदि 
+Predicted Marathi Translation:  शरीर जाता किया ही में भी की की भी से एक से की भ
+Input English sentence: even if the menstruation period has stopped women should appoint a day lrb whenever rrb each month for test
+Actual Marathi Translation:  मासिक धर्म बंद हो जाने पर भी महिलाओं को हर महिने स्वंय परीक्षण के लिए एक दिन कभी भी नियुक्त कर लेना चाहिए 
+Predicted Marathi Translation:  ’ में एक भी और एक से एक में से एक से एक में से ए
+Input English sentence: joints bringing discs of backbone together may also be damaged
+Actual Marathi Translation:  रीढ़ की हड्डी के मनकों को मिलाने वाले जोड़ भी क्षतिग्रस्त हो सकते हैं 
+Predicted Marathi Translation:  शरीर ’ आने से जुड़ा है कि बार से एक से की भी स
+Input English sentence: it is a common disease occurring in winter days
+Actual Marathi Translation:  सर्दी के दिनों में होने वाली यह सामान्य बीमारी है 
+Predicted Marathi Translation:  यह एक भी में एक कम से एक से एक में से एक से एक
+Input English sentence: treatment detecting the cause first remove them
+Actual Marathi Translation:  चिकित्सा सबसे पहले कारण जानकर उन्हें दूर करें 
+Predicted Marathi Translation:  रोगी के के बहुत भी से एक में से एक से एक में स
+Input English sentence: in the second quarter of pregnancy more or less all women become victims of iron deficiency
+Actual Marathi Translation:  गर्भावस्था की दूसरी तिमाही में कमोबेश सभी महिलायें आयरन की कमी का शिकार हो जाती हैं 
+Predicted Marathi Translation:  उम्र में एक कम से एक से एक में से एक से एक में स
+Input English sentence: never ever apply powder to the child
+Actual Marathi Translation:  शिशु को कभी भी पाउडर ना लगाएँ 
+Predicted Marathi Translation:  कुछ की से एक से एक में से एक से एक में से एक स
+Input English sentence: in the lavanya ayurvedic cancer hospital and research centre the treatment of cancer is possible from the root by ayurvedic medicine
+Actual Marathi Translation:  लावण्य आयुर्वेदिक कैंसर अस्पताल एण्ड रिसर्च सेन्टर में आयुर्वेदिक चिकित्सा के द्वारा कैंसर का इलाज जड़ से संभव है 
+Predicted Marathi Translation:  दूर में एक भी में भी से की कम से एक से एक में स
+Input English sentence: patient coughs badly
+Actual Marathi Translation:  रोगी बुरी तरह खाँसता है 
+Predicted Marathi Translation:  रोगी 
+Input English sentence: the nearest airport aurangabad is at a distance of kms
+Actual Marathi Translation:  नजदीकी हवाई अड्डा औरंगाबाद किमी है 
+Predicted Marathi Translation:  हवाई से एक भी और से एक से एक में से एक से एक मे
+Input English sentence: swelling becomes clearly visible in some cases by staying standing for long or coughing as well
+Actual Marathi Translation:  कुछ मामले में लंबे समय तक खड़े रहने या खाँसने से भी सूजन स्पष्ट रूप से नजर आने लगती है 
+Predicted Marathi Translation:  कुछ होता है और एक समय से की कम से एक से एक में स
+Input English sentence: in these days oranges can be had
+Actual Marathi Translation:  इन दिनों संतरे खाए जा सकते हैं 
+Predicted Marathi Translation:  इन भी पाया है कि एक कम में से एक से एक में से ए
+Input English sentence: it is celebrated with extreme enthusiasm
+Actual Marathi Translation:  इसे बड़े उत्साहपूर्वक मनाया जाता है 
+Predicted Marathi Translation:  यह एक के से से एक में से एक से एक में से एक से एक
+Input English sentence: whatever time you get up every day according to routine get up at that time only
+Actual Marathi Translation:  नियम अनुसार जितने बजे रोज उठते हो उतने ही बजे उठना 
+Predicted Marathi Translation:  हर की भी से एक में से एक से एक में से एक से एक
+Input English sentence: the thrilling adventure tourism does not stop here only in jharkhand rather sequence of world level organization continues in sonari area of jamshedpur under the important initiative by the tata steel adventure foundation jamshedpur also
+Actual Marathi Translation:  झारखण्ड में रोमांचक एडवेंचर टूरिज्म यहीं खत्म नहीं होता बल्कि टाटा स्टील एडवेंचर फाउंडेशन जमशेदपुर द्वारा भी महत्वपूर्ण पहल के तहत जमशेदपुर के सोनारी इलाके में विश्व स्तरीय आयोजन का सिलसिला जारी है 
+Predicted Marathi Translation:  यहाँ से एक में से एक से एक में से एक से एक में स
+Input English sentence: jhansi is connected with major railway lines of the country
+Actual Marathi Translation:  झाँसी देश की प्रमुख रेलवे लाइनों से जुड़ा है 
+Predicted Marathi Translation:  दिल्ली में एक में से एक से एक में से एक से एक मे
+Input English sentence: if drops of the oil of mustard are put in that then mosquitoes do not come close
+Actual Marathi Translation:  उस जल में बूंद सरसों का तेल डाल दिया जाए तो मच्छर पास नहीं आते हैं 
+Predicted Marathi Translation:  कान से एक भी से एक में से एक से एक में से एक स
+Input English sentence: bijapur can be reached through cities like mumbai badami hampi bangalore belgaum sholapur etc
+Actual Marathi Translation:  बीजापुर में मुंबई बादामी हम्पी बंगलौर बेलगाँव शोलापुर आदि शहरों से होकर पहुँचा जा सकता है 
+Predicted Marathi Translation:  यहाँ से एक में से भी से से एक से एक में से एक स
+Input English sentence: those kinds of awareness programs will have to be run against tobacco use and smoking like the ones which are running about aids
+Actual Marathi Translation:  तम्बाकू सेवन व धूम्रपान को लेकर उसी प्रकार के जागरूकता कार्यक्रम चलाने होंगे जैसे कि एड्स को लेकर चलाये जा रहे हैं 
+Predicted Marathi Translation:  इन तेल से कम से एक से एक में से एक से एक में स
+Input English sentence: with the kingfisher many alluring and unique birds are visible in the port which keep the environment resonant
+Actual Marathi Translation:  बंदरगाह पर किंगफिशर सहित कई मोहक और अनूठे पक्षी नजर आते हैं जो वातावरण को गुंजायमान रखते हैं 
+Predicted Marathi Translation:  यहाँ की एक भी से एक से एक में से एक से एक में स
+Input English sentence: within this the hosting of various contests is done
+Actual Marathi Translation:  इसके अंतर्गत विभिन्न प्रतियोगिताओं का आयोजन किया जाता है 
+Predicted Marathi Translation:  इसके भी से भी में से एक से एक में से एक से एक मे
+
+Training data
+
+BLEU-1: 0.029231
+BLEU-2: 0.000000
+BLEU-3: 0.000000
+BLEU-4: 0.000000
+Individual 1-gram: 0.029231
+Individual 2-gram: 0.000000
+Individual 3-gram: 0.000000
+Individual 4-gram: 0.000000
+
+Validation Set
+
+BLEU-1: 0.029590
+BLEU-2: 0.000000
+BLEU-3: 0.000000
+BLEU-4: 0.000000
+Individual 1-gram: 0.029590
+Individual 2-gram: 0.000000
+Individual 3-gram: 0.000000
+Individual 4-gram: 0.000000
+
