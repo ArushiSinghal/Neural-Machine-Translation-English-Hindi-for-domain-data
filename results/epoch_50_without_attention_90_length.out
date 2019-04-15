@@ -1,0 +1,447 @@
+______________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            (None, None)         0                                            
+__________________________________________________________________________________________________
+embedding_1 (Embedding)         (None, None, 300)    9147900     input_1[0][0]                    
+__________________________________________________________________________________________________
+time_distributed_1 (TimeDistrib (None, None, 300)    0           embedding_1[0][0]                
+__________________________________________________________________________________________________
+lstm_1 (LSTM)                   (None, None, 500)    1602000     time_distributed_1[0][0]         
+__________________________________________________________________________________________________
+input_2 (InputLayer)            (None, None)         0                                            
+__________________________________________________________________________________________________
+lstm_2 (LSTM)                   (None, None, 500)    2002000     lstm_1[0][0]                     
+__________________________________________________________________________________________________
+embedding_2 (Embedding)         (None, None, 300)    11870100    input_2[0][0]                    
+__________________________________________________________________________________________________
+lstm_3 (LSTM)                   (None, None, 500)    2002000     lstm_2[0][0]                     
+__________________________________________________________________________________________________
+time_distributed_2 (TimeDistrib (None, None, 300)    0           embedding_2[0][0]                
+__________________________________________________________________________________________________
+lstm_4 (LSTM)                   [(None, 500), (None, 2002000     lstm_3[0][0]                     
+__________________________________________________________________________________________________
+lstm_5 (LSTM)                   (None, None, 500)    1602000     time_distributed_2[0][0]         
+                                                                 lstm_4[0][1]                     
+                                                                 lstm_4[0][2]                     
+__________________________________________________________________________________________________
+lstm_6 (LSTM)                   [(None, None, 500),  2002000     lstm_5[0][0]                     
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, None, 39567)  19823067    lstm_6[0][0]                     
+==================================================================================================
+Total params: 52,053,067
+Trainable params: 52,053,067
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/50
+562/562 [==============================] - 1734s 3s/step - loss: 6.6710 - acc: 0.1157 - val_loss: 6.3328 - val_acc: 0.1448
+Epoch 2/50
+562/562 [==============================] - 1724s 3s/step - loss: 6.0626 - acc: 0.1554 - val_loss: 5.9896 - val_acc: 0.1659
+Epoch 3/50
+562/562 [==============================] - 1724s 3s/step - loss: 5.6970 - acc: 0.1767 - val_loss: 5.8237 - val_acc: 0.1846
+Epoch 4/50
+562/562 [==============================] - 1717s 3s/step - loss: 5.4094 - acc: 0.1981 - val_loss: 5.6605 - val_acc: 0.2036
+Epoch 5/50
+562/562 [==============================] - 1717s 3s/step - loss: 5.1563 - acc: 0.2155 - val_loss: 5.5315 - val_acc: 0.2161
+Epoch 6/50
+562/562 [==============================] - 1710s 3s/step - loss: 4.9375 - acc: 0.2322 - val_loss: 5.4674 - val_acc: 0.2246
+Epoch 7/50
+562/562 [==============================] - 1708s 3s/step - loss: 4.7498 - acc: 0.2474 - val_loss: 5.4256 - val_acc: 0.2319
+Epoch 8/50
+562/562 [==============================] - 1706s 3s/step - loss: 4.5815 - acc: 0.2625 - val_loss: 5.3982 - val_acc: 0.2405
+Epoch 9/50
+562/562 [==============================] - 1709s 3s/step - loss: 4.4258 - acc: 0.2767 - val_loss: 5.4009 - val_acc: 0.2435
+Epoch 10/50
+562/562 [==============================] - 1707s 3s/step - loss: 4.2713 - acc: 0.2910 - val_loss: 5.3763 - val_acc: 0.2487
+Epoch 11/50
+562/562 [==============================] - 1707s 3s/step - loss: 4.1312 - acc: 0.3045 - val_loss: 5.3827 - val_acc: 0.2518
+Epoch 12/50
+562/562 [==============================] - 1704s 3s/step - loss: 3.9882 - acc: 0.3189 - val_loss: 5.3888 - val_acc: 0.2524
+Epoch 13/50
+562/562 [==============================] - 1706s 3s/step - loss: 3.8672 - acc: 0.3321 - val_loss: 5.4318 - val_acc: 0.2492
+Epoch 14/50
+562/562 [==============================] - 1709s 3s/step - loss: 3.7494 - acc: 0.3446 - val_loss: 5.4882 - val_acc: 0.2505
+Epoch 15/50
+562/562 [==============================] - 1706s 3s/step - loss: 3.6337 - acc: 0.3576 - val_loss: 5.5259 - val_acc: 0.2497
+Epoch 16/50
+562/562 [==============================] - 1703s 3s/step - loss: 3.5202 - acc: 0.3704 - val_loss: 5.5741 - val_acc: 0.2519
+Epoch 17/50
+562/562 [==============================] - 1705s 3s/step - loss: 3.4162 - acc: 0.3829 - val_loss: 5.6155 - val_acc: 0.2521
+Epoch 18/50
+562/562 [==============================] - 1711s 3s/step - loss: 3.3126 - acc: 0.3963 - val_loss: 5.6824 - val_acc: 0.2469
+Epoch 19/50
+562/562 [==============================] - 1709s 3s/step - loss: 3.2205 - acc: 0.4088 - val_loss: 5.7162 - val_acc: 0.2473
+Epoch 20/50
+562/562 [==============================] - 1709s 3s/step - loss: 3.1274 - acc: 0.4200 - val_loss: 5.7862 - val_acc: 0.2415
+Epoch 21/50
+562/562 [==============================] - 1708s 3s/step - loss: 3.0593 - acc: 0.4323 - val_loss: 5.8496 - val_acc: 0.2387
+Epoch 22/50
+562/562 [==============================] - 1709s 3s/step - loss: 2.9860 - acc: 0.4424 - val_loss: 5.9006 - val_acc: 0.2367
+Epoch 23/50
+562/562 [==============================] - 1710s 3s/step - loss: 2.9032 - acc: 0.4531 - val_loss: 5.9051 - val_acc: 0.2412
+Epoch 24/50
+562/562 [==============================] - 1705s 3s/step - loss: 2.8269 - acc: 0.4637 - val_loss: 5.9942 - val_acc: 0.2400
+Epoch 25/50
+562/562 [==============================] - 1706s 3s/step - loss: 2.7535 - acc: 0.4724 - val_loss: 6.0546 - val_acc: 0.2403
+Epoch 26/50
+562/562 [==============================] - 1704s 3s/step - loss: 2.6854 - acc: 0.4829 - val_loss: 6.0870 - val_acc: 0.2347
+Epoch 27/50
+562/562 [==============================] - 1709s 3s/step - loss: 2.6297 - acc: 0.4924 - val_loss: 6.1173 - val_acc: 0.2380
+Epoch 28/50
+562/562 [==============================] - 1709s 3s/step - loss: 2.5764 - acc: 0.4994 - val_loss: 6.1524 - val_acc: 0.2340
+Epoch 29/50
+562/562 [==============================] - 1708s 3s/step - loss: 2.5129 - acc: 0.5092 - val_loss: 6.1978 - val_acc: 0.2321
+Epoch 30/50
+562/562 [==============================] - 1704s 3s/step - loss: 2.4582 - acc: 0.5185 - val_loss: 6.2281 - val_acc: 0.2341
+Epoch 31/50
+562/562 [==============================] - 1708s 3s/step - loss: 2.4155 - acc: 0.5261 - val_loss: 6.2448 - val_acc: 0.2367
+Epoch 32/50
+562/562 [==============================] - 1707s 3s/step - loss: 2.3662 - acc: 0.5314 - val_loss: 6.3063 - val_acc: 0.2373
+Epoch 33/50
+562/562 [==============================] - 1708s 3s/step - loss: 2.3068 - acc: 0.5404 - val_loss: 6.3518 - val_acc: 0.2282
+Epoch 34/50
+562/562 [==============================] - 1703s 3s/step - loss: 2.2572 - acc: 0.5488 - val_loss: 6.3662 - val_acc: 0.2281
+Epoch 35/50
+562/562 [==============================] - 1706s 3s/step - loss: 2.2078 - acc: 0.5575 - val_loss: 6.4158 - val_acc: 0.2306
+Epoch 36/50
+562/562 [==============================] - 1703s 3s/step - loss: 2.1637 - acc: 0.5663 - val_loss: 6.4306 - val_acc: 0.2309
+Epoch 37/50
+562/562 [==============================] - 1705s 3s/step - loss: 2.1212 - acc: 0.5716 - val_loss: 6.4538 - val_acc: 0.2321
+Epoch 38/50
+562/562 [==============================] - 1704s 3s/step - loss: 2.0750 - acc: 0.5787 - val_loss: 6.5045 - val_acc: 0.2310
+Epoch 39/50
+562/562 [==============================] - 1708s 3s/step - loss: 2.0318 - acc: 0.5849 - val_loss: 6.5337 - val_acc: 0.2280
+Epoch 40/50
+562/562 [==============================] - 1704s 3s/step - loss: 1.9898 - acc: 0.5909 - val_loss: 6.5738 - val_acc: 0.2260
+Epoch 41/50
+562/562 [==============================] - 1705s 3s/step - loss: 1.9012 - acc: 0.6040 - val_loss: 6.6150 - val_acc: 0.2263
+Epoch 43/50
+562/562 [==============================] - 1706s 3s/step - loss: 1.8733 - acc: 0.6070 - val_loss: 6.6623 - val_acc: 0.2290
+Epoch 44/50
+562/562 [==============================] - 1711s 3s/step - loss: 1.8341 - acc: 0.6130 - val_loss: 6.6981 - val_acc: 0.2270
+Epoch 45/50
+562/562 [==============================] - 1708s 3s/step - loss: 1.8024 - acc: 0.6167 - val_loss: 6.7587 - val_acc: 0.2270
+Epoch 46/50
+562/562 [==============================] - 1705s 3s/step - loss: 1.7726 - acc: 0.6214 - val_loss: 6.8397 - val_acc: 0.2181
+Epoch 47/50
+562/562 [==============================] - 1704s 3s/step - loss: 1.7443 - acc: 0.6269 - val_loss: 6.7958 - val_acc: 0.2228
+Epoch 48/50
+562/562 [==============================] - 1709s 3s/step - loss: 1.7185 - acc: 0.6305 - val_loss: 6.8318 - val_acc: 0.2242
+Epoch 49/50
+562/562 [==============================] - 1706s 3s/step - loss: 1.6909 - acc: 0.6348 - val_loss: 6.8348 - val_acc: 0.2262
+Epoch 50/50
+562/562 [==============================] - 1704s 3s/step - loss: 1.6629 - acc: 0.6400 - val_loss: 6.8715 - val_acc: 0.2250
+
+Input English sentence: rubella or german measles is also extremely contagious which occurs in children adolescents and youths
+Actual Marathi Translation:  रूबेला या जर्मन मीजल्स भी अत्यधिक छूत की बीमारी है जो बच्चों किशोरों और युवाओं को होती है 
+Predicted Marathi Translation:  आम हैं खुशबू और भी देखकर घर का भी में आत्मा यह तीसरे और शरीर से बहुत ही यही और एक और ही 
+Input English sentence: if necessary deposit your stuff there
+Actual Marathi Translation:  जरूरत पड़ने पर अपना सामान वहीं जमा कराएँ 
+Predicted Marathi Translation:  जरूरत होने आर्थिक सर्वप्रथम में अवसाद खुशबू अनोखी भी कम चरण में भी 
+Input English sentence: this kayakalp oil is a holy medicine worth keeping in every house at all times
+Actual Marathi Translation:  यह कायाकल्प तैल प्रत्येक घर में सदैव रखने योग्य दिव्य औषध है 
+Predicted Marathi Translation:  यह भी की एक भी 
+Input English sentence: jaivilas palace is residence of the sindhiya family
+Actual Marathi Translation:  जयविलास महल सिंधिया परिवार का आवास स्थान है 
+Predicted Marathi Translation:  जयविलास जंगल के और भी हमें गोली के में दिमाग खुशबू अनोखी में भी आकर पानी से ही सितम्बर निकले अपनी
+Input English sentence: one does not take care of hair properly then problem of dandruff starts increasing
+Actual Marathi Translation:  अगर बालों की देखभल तरीके से ना की जाए तो डैंड्रफ की समस्या बढ़ने लगती है 
+Predicted Marathi Translation:  बालों कर्मचारियों पर ही है खुशबू और भी पूर्व एक ही प्रथम 
+Input English sentence: on occurrence of constipation when a patient applies a lot of pressure then anus also starts coming out with that pressure
+Actual Marathi Translation:  कब्ज होने पर जब रोगी मल को निकालने के लिए खूब जोर लगाता है तो उस जोर के साथ गुदा भी बाहर निकलने लगती है 
+Predicted Marathi Translation:  खाली जनपदों में की भी पूर्व तैयार परियोजना रोमांचकारी का भी शुरू एक 
+Input English sentence: actually it has been deduced from the total studies done on linseed that if a person with high cholesterol has to gram of linseed everyday then there is a considerable reduction in his bad cholesterol ldl
+Actual Marathi Translation:  दरअसल अलसी पर किए गए कुल अध्ययनों के विशलेषण से पता चला है कि हाई कॉलेस्टेरॉल वाला व्यक्ति यदि रोजाना लगभग से ग्राम अलसी के बीजों का सेवन करता है तो उसके खराब कॉलेस्टेरॉल एलडीएल के लेवल में खासी कमी आ सकती है 
+Predicted Marathi Translation:  दरअसल एक और 
+Input English sentence: besides this some famous boutiques are also located in these shopping center
+Actual Marathi Translation:  इस के अलावा इन शॉपिंग सेंटर में कुछ मशहूर बुटिक भी स्थित हैं 
+Predicted Marathi Translation:  इस की 
+Input English sentence: we call this condition itself endomyosis but treatment of this disease is possible without an operation with the help of uterine artery embolization
+Actual Marathi Translation:  इसी अवस्था को एडेनोमायोसिस कहा जाता है पर यूटेराइन आर्टरी एंबोलाइजेशन विधि के माध्यम से ऑपरेशन के बगैर इस मर्ज का उपचार संभव है 
+Predicted Marathi Translation:  इस बीच को भी 
+Input English sentence: when a lot of time has been spent while walking and even then the destined object can be seen right in front then our folly is realized by us
+Actual Marathi Translation:  जब चलते चलते अधिक समय लग जाता है और निर्दिष्ट वस्तु फिर भी सामने दिखाई देती है तब अपनी भूल का ज्ञान होता है 
+Predicted Marathi Translation:  जब छोटे से रोगी से ही की 
+Input English sentence: there is one more place where new year is celebrated in a different style
+Actual Marathi Translation:  अमेरिका में नए साल को अलग अंदाज में मनाने की एक और जगह 
+Predicted Marathi Translation:  मनुष्य और भर परम्परा है खुशबू के और तो 
+Input English sentence: you have to use strength while excreting
+Actual Marathi Translation:  मल त्यागते समय शक्ति का प्रयोग करना पड़ता है 
+Predicted Marathi Translation:  पेट में से मुद्रा से भी पूर्व एक ही प्रथम एक के से भी एक भी 
+Input English sentence: protein and oil are both present in conditioner
+Actual Marathi Translation:  कंडीशनर में प्रोटीन और तेल दोनों होते हैं 
+Predicted Marathi Translation:  कंडीशनर यह पथ भी में बहुत ही हम 
+Input English sentence: impure blood comes in the right auricle through the two main arteries which is sent to the lung for purification by the right ventricle through an aorta and one aorta from the posterior part of the body
+Actual Marathi Translation:  दाएँ अलिंद में दो महाशिराओं द्वारा अशुद्ध रक्त आता है जो दाएँ निलय द्वारा एक महाधमनी से फेफड़ो में शुद्धिकरण के लिए भेज दिया जाता है और एक महाशिरा एक शरीर के निचले भाग से 
+Predicted Marathi Translation:  उपरोक्त ओर इनके लंबी है खुशबू के और तो 
+Input English sentence: go to kollwitz platz to taste the russian and persian food
+Actual Marathi Translation:  रूसी और पारसी खानों के स्वाद चखने के लिए कोलविट्स प्लाट्ज़ जाएँ 
+Predicted Marathi Translation:  अधिक हैं खुशबू और भी सम्राट एक शहर की पहले भी स्वतंत्र एक 
+Input English sentence: there was half an hour left for the last entry
+Actual Marathi Translation:  अभी अंतिम प्रविष्टि में आधा घंटा शेष था 
+Predicted Marathi Translation:  हवा पर की हमें भी 
+Input English sentence: massage lightly with the mixture of facial oil keep hot towels on face and on keeping towel for minutes soak oil with it
+Actual Marathi Translation:  फेशियल के तेल के मिश्रण से धीमेधीमे मालिश करें चेहरे पर गर्म तौलिया रखें और मिनट तक चेहरे पर तौलिया रखकर तेल को उससे सोखें 
+Predicted Marathi Translation:  छत वरदान आदि से अपने 
+Input English sentence: languages of lakshadweep are malayalam and english
+Actual Marathi Translation:  लक्षद्वीप की भाषाएँ हैं मलयालम और अंग्रेजी 
+Predicted Marathi Translation:  लक्षद्वीप की ही रेल खुशबू हैं खुशबू के भी में भी मुलायम की भी 
+Input English sentence: there is instant relief from dry cough by taking grams mulethi powder mixing in pure honey
+Actual Marathi Translation:  ग्राम मुलैठी चूर्ण को एक चम्मच शुद्ध शहद में मिलाकर लेने से सूखी खाँसी से तत्काल आराम मिलता है 
+Predicted Marathi Translation:  ग्राम रूप पढ़ने वरदान ही जवान शरीर को भी गिर विषय बेहतर प्रसार है खुशबू से ही एक भी पीठ वरदान है ख
+Input English sentence: there are many reasons of this
+Actual Marathi Translation:  इसके बहुत कारण हैं 
+Predicted Marathi Translation:  इसके एक ही 
+Input English sentence: state bus service had started for the first time in the state in ad in tonk
+Actual Marathi Translation:  राज्य में पहली बार राजकीय बस सेवा टोंक में ई में प्रारंभ हुई थी 
+Predicted Marathi Translation:  मणिपुर में अपने एक 
+Input English sentence: the speed ability of scooters is till kms per hour
+Actual Marathi Translation:  स्कूटरों की गति क्षमता किमी प्रति घंटा तक की है 
+Predicted Marathi Translation:  जाता अनुरूप भी में एक भी पूर्व की भी मेरे शरीर से ही शब्द का भी में भी पूर्व बहुत से एक भी 
+Input English sentence: to participate in this festival elephants from far and wide gather here
+Actual Marathi Translation:  इस फेस्टिवल में हिस्सा लेने के लिए दूरदूर से हाथी जमा होते हैं 
+Predicted Marathi Translation:  इस एक ही एक भी 
+Input English sentence: look for excuses to make yourself happy
+Actual Marathi Translation:  स्वयं को खुश करने के बहाने खोजें 
+Predicted Marathi Translation:  स्वयं हुए हैं खुशबू और भी में बिल्कुल भी 
+Input English sentence: in cerebral angiography blood clotting and mental problems are being diagnosed
+Actual Marathi Translation:  सेरेब्रेल एंजियोग्राफी में खून के थक्के और दिमागी समस्याओं के बारे में पता लगाया जाता है 
+Predicted Marathi Translation:  हृदय से ही बोर्ड स्वतंत्र है खुशबू की ही शब्द की भी कम एक और एक भी की भी शुरू की 
+Input English sentence: do not play with your hair in the pursuit of economy
+Actual Marathi Translation:  सस्ते के चक्कर में अपने केशों के साथ किसी भी प्रकार का खिलवाड़ न करें 
+Predicted Marathi Translation:  गर्भनिरोधक के और भी श्रद्धालुओं वरदान ही है खुशबू के और तो 
+Input English sentence: this part s name was jamaica
+Actual Marathi Translation:  इस क्षेत्र में कोलंबस का पदार्पण हुआ उस के कुछ हिस्से को स्पेन ने अपने कब्जे में ले लिया 
+Predicted Marathi Translation:  इस और 
+Input English sentence: located at a distance of kms from imphal in the south west the vishnu temple of vishnupur built in ad with chinese architecture is the chief center of tourists due to its unique architecture
+Actual Marathi Translation:  इम्फाल से किमी की दूरी पर दक्षिण पश्चिम में स्थित ई में निर्मित चीनी वास्तुकला से निर्मित विष्णुपुर का विष्णु मंदिर अपनी अनूठी स्थापत्य कला के कारण पर्यटकों का मुख्य केन्द्र बिन्दू है 
+Predicted Marathi Translation:  इम्फाल से ही एक और 
+Input English sentence: tuberculosis can occur in any part of the body such as lungs bones joints or the sides of lymph nodes
+Actual Marathi Translation:  क्षय रोग शरीर के किसी भी हिस्से में हो सकता है जैसे फेफड़ों हड्डियों जोड़ों या लसिका ग्रन्थियों के किनारे 
+Predicted Marathi Translation:  कोशिका वरदान हैं खुशबू और भी दोस्तों खूब शुरू है खुशबू के और तो 
+Input English sentence: calm idle and surrounded by forests this lake is a charming picnic spot
+Actual Marathi Translation:  शांत अलसायी तथा वनों से घिरी यह झील एक मनोहारी पिकनिक स्थल है 
+Predicted Marathi Translation:  शांत में हाथ में भी है खुशबू और से भी 
+Input English sentence: vitamin a has high importance for child
+Actual Marathi Translation:  विटामिन ए का बच्चे के लिए बहुत महत्त्व है 
+Predicted Marathi Translation:  बच्चों से ही एक और एक भी कुछ देखकर मई द्वितीय उतार प्रजनन के और शरीर से ही संबंधी ओर भी आकर यह ए
+Input English sentence: treatment you should allow the child to lie in bed comfortably
+Actual Marathi Translation:  चिकित्सा बच्चे को आराम से बिस्तर पर पड़े रहने देना चाहिए 
+Predicted Marathi Translation:  चिकित्सा फायदा राज मुलायम जुलूस पर भी 
+Input English sentence: we will also want to attract them by giving high level facilities in cheap packages
+Actual Marathi Translation:  हम इन्हें भी सस्ते पैकेज में उच्चस्तरीय सुविधाएँ देकर आकर्षित करना चाहेंगे 
+Predicted Marathi Translation:  कई ही से रोगों खुशबू से भी 
+Input English sentence: kms away from loktak the keibul lam jao national park is a center of attraction
+Actual Marathi Translation:  ’कैलबुल लामजाओ’ राष्ट्रीय उद्यान लोकटक से किमी दूर एक आकर्षण का केंद्र है 
+Predicted Marathi Translation:  यहाँ के भी ज्यादा आत्मा अनोखी प्रजनन से भी में भी गिर विचार मकानों खुशबू उससे भी बढ़ भाग मौका व
+Input English sentence: a pedestrian path used to go to dharamshala from panjpulla at some time
+Actual Marathi Translation:  कभी पंजपुला से धर्मशाला की ओर एक पैदल मार्ग जाता था 
+Predicted Marathi Translation:  ’ जो भी 
+Input English sentence: be cautious towards your body and get investigated by the doctor from time to time then riddance from breast cancer can be obtained easily
+Actual Marathi Translation:  अपने शरीर के प्रति सतर्क रहें और समयसमय पर डॉक्टर से जाँच कराती रहें तो वक्ष के कैंसर से आसानी से छुटकारा मिल सकता है 
+Predicted Marathi Translation:  अपने बनी के बनी है खुशबू के और तो 
+Input English sentence: you can enjoy some other adventure sports as well
+Actual Marathi Translation:  कुछ अन्य एडवेंचर स्पोर्ट्स का भी आप आनंद ले सकते हैं 
+Predicted Marathi Translation:  कुछ 
+Input English sentence: generally there is much less vogue of predelivery services among uneducated mothers and in the families of low living standards the following works are done mainly under this service
+Actual Marathi Translation:  सामान्यतः अशिक्षित माताओं एवं निम्न जीवन स्तर वाले परिवारों में प्रसव पूर्व सेवाओं का प्रचलन बहुत ही कम है इस सेवा के अंतर्गत निम्न कार्य मुख्य रूप से किये जाते हैं 
+Predicted Marathi Translation:  आमतौर नमी पर संपन्न है खुशबू के और तो 
+Input English sentence: in karnataka in ad the ruler of small mysore state yadurai founded the wodeyar dynasty
+Actual Marathi Translation:  कर्नाटक में ई में छोटे मैसूर राज्य के शासक यदुराय ने वोडयार वंश की नींव डाली 
+Predicted Marathi Translation:  कर्नाटक और से एक भी 
+Input English sentence: this time no plastic bags will be used in the fair
+Actual Marathi Translation:  इस बार से मेले में प्लास्टिक बैग्स का प्रयोग नहीं होगा 
+Predicted Marathi Translation:  इस और साथ जवान दर्द है खुशबू के और तो 
+Input English sentence: if feet will be warm then blood circulation will remain constant in them
+Actual Marathi Translation:  पैर गर्म होंगे तो उनमें रक्त प्रवाह बना रहेगा 
+Predicted Marathi Translation:  पैर जीन में भी में भी में 
+Input English sentence: there are several kinds of angiography
+Actual Marathi Translation:  एंजियोग्राफी कई तरह की होती है 
+Predicted Marathi Translation:  अनिद्रा के बनी है खुशबू के और तो 
+Input English sentence: you can only imagine the thrill in it
+Actual Marathi Translation:  लोग पेड़ के ऊपर से शरीर में रस्सी बाँध कर गहरी खाई में गोते लगाते हैं 
+Predicted Marathi Translation:  लोग को से अंदर से कारणवश उसके एक ही प्रथम एक भी शुरू वैज्ञानिकों और के भी एक भी 
+Input English sentence: here in the palace the temple of mahasu god and the instruments of olden times are present even today
+Actual Marathi Translation:  यहाँ राजमहल में महासू देवता का मंदिर एवं प्राचीन समय के वाद्य यंत्र आज भी मौजूद हैं 
+Predicted Marathi Translation:  यहाँ में भी शुरू है खुशबू के और तो 
+Input English sentence: nearness of the states of gujarat and maharashtra has given the tourism here a full opportunity to flourish
+Actual Marathi Translation:  गुजरात व महाराष्ट्र राज्य की नजदीकी ने यहाँ के पर्यटन को फलनेफूलने का पूरा मौका दिया है 
+Predicted Marathi Translation:  गुजरात में भी पूर्व बहुत से एक भी 
+Input English sentence: after worship in jagdalpur it is seen off for dantewada
+Actual Marathi Translation:  जगदलपुर में पूजा अर्चना के बाद उसे दंतेवाड़ा के लिए विदा किया जाता है 
+Predicted Marathi Translation:  जगदलपुर ही भर वैज्ञानिकों स्टेम साफ है खुशबू के और तो 
+Input English sentence: because of all this roughness appears in hair also and it becomes difficult to take care of them
+Actual Marathi Translation:  इस सबके कारण बालों में भी रूखापन नजर आता है और इनको सँभालना मुश्किल हो जाता है 
+Predicted Marathi Translation:  इस एक ही पुरानी निर्धारित चिकित्सकों द्वारा ग्रुप पर भी 
+Input English sentence: sun of this season is the best
+Actual Marathi Translation:  इस मौसम की धूप सबसे भली होती है 
+Predicted Marathi Translation:  इस लंबे समय में राज वरदान रोमांचकारी हवाई से ही परम्परा हलचल और एक भी पूर्व पाई लेवल के भी अधिक ग
+Input English sentence: usually during injury to six to ten year old kids along with their teeth their dentures also break and then are left without teeth
+Actual Marathi Translation:  यदि वह सीमा अपनी रेखा का अतिक्रमण कर जाती है तो व्यक्ति की मृत्यु हो सकती है 
+Predicted Marathi Translation:  गर्भावस्था रूप हलचल उच्च वैक्सीन अनोखी से भी एक भी इन एक भी में भी शुरू की 
+Input English sentence: there the cost of spending one night is just thai baht
+Actual Marathi Translation:  वहाँ एक रात बिताने का खर्च महज थाई बाह्त है 
+Predicted Marathi Translation:  वहाँ की ही एक भी शुरू की 
+Input English sentence: balanced diet is necessary for becoming beautiful
+Actual Marathi Translation:  सुंदर बनने के लिए संतुलित खानपान जरूरी है 
+Predicted Marathi Translation:  आपके शरीर से भी में 
+Input English sentence: amidst the foreign tourists coming to india percent tourists come to rajasthan
+Actual Marathi Translation:  भारत आने वाले विदेशी सैलानियों में से प्रतिशत सैलानी राजस्थान आते हैं 
+Predicted Marathi Translation:  भारत में काफी बना भीलवाड़ा पर और भी पूर्व बहुत ही भी बढ़ चरण स्टेम होंगे 
+Input English sentence: a small hill named dolphin nose on its southern tip also is a place of ramakrishna beach worth visit
+Actual Marathi Translation:  यह एक अद्वितीय संग्रहालय है जो केवल विशाखापट्नम में ही है 
+Predicted Marathi Translation:  एक ही है खुशबू से ही जी का पूरी है खुशबू के और भी फीट खुशबू दृष्टिकोण चरण स्टेम करवट भी सरकार क
+Input English sentence: one out of every eight individuals in india is afflicted with diabetes
+Actual Marathi Translation:  भारत में प्रत्येक आठ व्यक्तियों में एक व्यक्ति मधुमेह से ग्रसित है 
+Predicted Marathi Translation:  भारत से पहले एक भी पीठ अनोखी में बहुत ही संबंधी 
+Input English sentence: he does not shy from crossing all limits to obtain this
+Actual Marathi Translation:  इसे हासिल करने के लिए वह सभी हदें लाँघने से भी गुरेज नहीं करता 
+Predicted Marathi Translation:  यह है खुशबू के और तो 
+Input English sentence: in fact triptopan phenailalanin and thyrocin named amino acids are found in excessive quantity
+Actual Marathi Translation:  दरअसल गहरे रंग के चॉकलेट में ट्रिप्टोपैन फेनाइलालैनिन और थाइरोसिन नामक एमिनो एसिड्स अत्यधिक मात्रा में होते हैं 
+Predicted Marathi Translation:  दरअसल अपने एक भी 
+Input English sentence: as a result of this breathing process of patient gets constrained
+Actual Marathi Translation:  इसके परिणामस्वरूप मरीज को साँस लेने की क्रिया बाधित होती है 
+Predicted Marathi Translation:  इसके एक भी की पद्धति को उष्ण से किस इसके एक के 
+Input English sentence: actually i had never been there before this
+Actual Marathi Translation:  दरअसल इससे पहले मैं कभी वहाँ नहीं गई थी 
+Predicted Marathi Translation:  दरअसल दो ही कारण किले पर और भी पूर्व एक ही प्रथम 
+Input English sentence: continuously clean the area affected with the bite or sting of animals so that the poison of the sting or saliva lrb spit rrb gets cleaned
+Actual Marathi Translation:  पशु के काटने या डंक लगने पर प्रभावित हिस्से को लगातार पानी से धोएँ ताकि डंक का ज़हर या सलाइवा थूक साफ हो जाए 
+Predicted Marathi Translation:  खान यह एक और को भी पूर्व बहुत से एक भी 
+Input English sentence: because of swelling in intestines production of pain is more because of constipation therefore to end swelling you should end constipation of patient first
+Actual Marathi Translation:  आँतों में सूजन के कारण दर्द की उत्पत्ति कब्ज के कारण अधिक होती है इसलिए सूजन को नष्ट करने के लिए रोगी के कब्ज को पहले नष्ट करना चाहिए 
+Predicted Marathi Translation:  आँतों से पहले उसमें से एक भी 
+Input English sentence: for the test of people suffering from the fever blood strips are made also pills for the treatment of malaria are also given
+Actual Marathi Translation:  ज्वर पीड़ित लोगों के खून जाँच हेतु रक्तपट्टिकाएँ बनाई जाती हैं साथ ही मलेरिया उपचारक गोलियाँ भी दी जाती हैं 
+Predicted Marathi Translation:  कई से अधिक और से इन्हें लेजर के और शरीर से पहले यह एक और एक भी में कभी भी में बहुत ही पूर्व बहु
+Input English sentence: in the mania of industrial globalisation much of jharkhand remain unseen unknown and awaited
+Actual Marathi Translation:  औद्योगिक ग्लोबलाइजेशन की धुन में झारखंड का बहुत कुछ अनदेखा अनजाना और अपेक्षित रह गया है 
+Predicted Marathi Translation:  गुजरात में ले पचमढ़ी बोतल खुशनुमा है खुशबू के और तो 
+Input English sentence: complete it
+Actual Marathi Translation:  अफ्रीका सहित राजस्थान में कुपोषण और अल्परक्तता सहित दर्जनभर ऐसी ही बीमारियों से लड़ने में झील का शैवाल ’ स्पाइरूलीना ’ खासा कारगर साबित हो रहा है 
+Predicted Marathi Translation:  जब अधिक भी वर्षा से अंत में एक किमी खुशबू अनुरूप मकानों अनोखी तंत्र में भी 
+Input English sentence: along with it cook and eat radish and its leaves it is useful in jaundice
+Actual Marathi Translation:  साथ ही मूली और उसके पत्तों को पकाकर खायें पीलिया में उपयोगी है 
+Predicted Marathi Translation:  इसके ओर भी परिचित और भी इसकी बिल्कुल भी है खुशबू से ही सरकार को भी है खुशबू से ही पूरी एक और ए
+Input English sentence: mundamahadevi built the battisa temple during the regime of someshwar dev
+Actual Marathi Translation:  बत्तीसा मंदिर का निर्माण गुण्डमहादेवी ने सोमेश्वर देव के शासन काल में किया 
+Predicted Marathi Translation:  दर्द है खुशबू और भी है खुशबू से ही एक भी पीठ वरदान है खुशबू के और तो 
+Input English sentence: train service for digha has also started a few days ago
+Actual Marathi Translation:  अभी कुछ दिन पहले हावड़ा से दीघा के लिए ट्रेन सेवा भी शुरू हुई है 
+Predicted Marathi Translation:  पुरी और ही जवान नीली भी एक पहुँचे अधिकारी में भी पूर्व बहुत से एक भी प्रथम बह प्रजनन काल पर एक और 
+Input English sentence: on waking up late body gets filled with lethargy
+Actual Marathi Translation:  विलंब से उठने पर शरीर आलस से भर जाता है 
+Predicted Marathi Translation:  नियमित है खुशबू के और तो 
+Input English sentence: diabetes may damage the retina of your eyes which may cause blindness
+Actual Marathi Translation:  डायबिटीज आपकी आँखों की रेटिना को क्षति पहुँचा सकती है जिससे अंधापन हो सकता है 
+Predicted Marathi Translation:  श्वास निभाते खुशबू के और तो मई हलचल अतिरिक्त पास दृष्टिकोण परंपरागत साहित्य से ही सबसे अधिक है ख
+Input English sentence: right in the middle of the city is world famous sabina cricket stadium
+Actual Marathi Translation:  फिर भी किंग्सटन का रेलवे यार्ड पर्यटकों के आकर्षण का केंद्र है 
+Predicted Marathi Translation:  शहर दवाइयाँ ही जिला इस से पहले की भी मेरे शरीर से कम भी 
+Input English sentence: i had been disillusioned many a times
+Actual Marathi Translation:  मुझे कई बार धोखा हो चुका था 
+Predicted Marathi Translation:  मैं अब शेष एक और के और लिए जून खुशबू जल में और 
+Input English sentence: you may treat cancer by any method but after cure its re examination is necessary
+Actual Marathi Translation:  कैंसर उपचार किसी भी विधि से किया जाए और ठीक होने के बाद उनका पुर्नपरीक्षण आवश्यक है 
+Predicted Marathi Translation:  किसी भी 
+Input English sentence: in this taking lemon water regularly is also beneficial
+Actual Marathi Translation:  इस काम में निरंतर नींबू पानी लेना भी फायदा करता है 
+Predicted Marathi Translation:  इसमें भी पथ आत्मा अनोखी भर वैसे भी 
+Input English sentence: make some arrangements in advance
+Actual Marathi Translation:  कुछ इंतजाम पहले से करके रख लें 
+Predicted Marathi Translation:  उस पर एक भी 
+Input English sentence: maybe this will not give lesser blessings than taking a dip in the sangam
+Actual Marathi Translation:  शायद यह संगम में डुबकी लगाने से कम पुण्य देने वाला नहीं 
+Predicted Marathi Translation:  शायद ही बी की 
+Input English sentence: because a new life is growing inside your body that is why you will feel very tired
+Actual Marathi Translation:  चूँकि एक नया जीवन आपके शरीर में बढ़ रहा है इसलिए आपको थकान अधिक महसूस होगी 
+Predicted Marathi Translation:  क्योंकि काली कई एक ही नाक खुशबू कीमत कल अनोखी जवान शरीर से ही सबसे अधिक अतिरिक्त ’ में 
+Input English sentence: the meaning of birth and child health point of view is to accept unanimous and composite view towards the issues of contraception and motherchild health
+Actual Marathi Translation:  प्रजनन एवं शिशु स्वास्थ्य दृष्टिकोण का अर्थ है गर्भनिरोध एवं मातृशिशु स्वास्थ्य के मुद्दों के प्रति एकीकृत और समग्र दृष्टिकोण अपनाना 
+Predicted Marathi Translation:  सदस्य भी में असाधारण पर्वतारोही को पद्धति में भी चाँदी की ही एक और एक भी की भी शुरू की ही भी 
+Input English sentence: diabetes is of two types
+Actual Marathi Translation:  डायबिटीज दो तरह का होता है 
+Predicted Marathi Translation:  मधुमेह पर ही है खुशबू और भी पूर्व एक भी प्रथम लगी खुशबू महत्व खुशबू से धीरेधीरे की 
+Input English sentence: the cost of one gram medicine in world market is three lakh rupees
+Actual Marathi Translation:  विश्व बाजार में इसकी एक ग्राम दवा की कीमत तीन लाख रुपए है 
+Predicted Marathi Translation:  मणिपुर की ही भी जवान और एक भी 
+Input English sentence: such interesting questions today are of pervasive importance
+Actual Marathi Translation:  ऐसे रोचक प्रश्न आज व्यापक महत्व के हैं 
+Predicted Marathi Translation:  ऐसी तक उतना ही शब्द का भी मेरे एक ही 
+Input English sentence: loss in the awareness of place and time for example considering morning as evening to start using kitchen as bathroom forgetting the way to home etc
+Actual Marathi Translation:  जगह व समय के बोध में कमी उदाहरण के लिए सुबह को शाम समझ लेना रसोई को बाथरुम की तरह इस्तेमाल करने लगना घर का रास्ता भूल जाना आदि 
+Predicted Marathi Translation:  अँगुलियों से शुरू की अच्छी एक 
+Input English sentence: we took a taxi to reach to the bus stand and breathed a sigh of relief after reaching the guest house by pm running around
+Actual Marathi Translation:  टैक्सी करके बस अड्डे पहुँचे और भागते भागते रात के बजे गेस्ट हाउस पहुँच कर हमने चैन की साँस ली 
+Predicted Marathi Translation:  हम हैं खुशबू के कर मर्ज अनोखी योग्य अनोखी 
+Input English sentence: the ruins of the iron chained year old bridge remain at chajam
+Actual Marathi Translation:  छाजम पर लोहे की जंजीरों वाले वर्ष पुराने पुल के अवशेष बचे हैं 
+Predicted Marathi Translation:  बाहरी और एक 
+Input English sentence: if there is tendency for dysentery then by having rice mixed with curd it stops
+Actual Marathi Translation:  भात को दही के साथ मिलाकर खाने से यदि दस्त लगे हों तो बंद हो जाते हैं 
+Predicted Marathi Translation:  यदि भी पूर्व का भी शुरू एक शहर से बाहर की भी कम राज्य में ही पूर्व एक भी प्रथम के भी में आम ही ए
+Input English sentence: if pregnant women and their family members are given these informations then definitely mother and child may be protected from becoming the victims of malnutrition
+Actual Marathi Translation:  गर्भवती महिला व उसके परिवार के सदस्यों को अगर यह जानकारियाँ दी जाएँ तो निश्चित ही माँ व बच्चे कुपोषण के शिकार से बच सकते हैं 
+Predicted Marathi Translation:  जानकारी पर्याप्त और से उसके एक भी लगातार 
+Input English sentence: buses go till dadahu
+Actual Marathi Translation:  ददाहू तक बसें जाती हैं 
+Predicted Marathi Translation:  सड़क की भी 
+Input English sentence: this wildlife park made for the conservation of all endangered lives is pretty popular amongst the animal lovers
+Actual Marathi Translation:  तमाम लुप्तप्राय जीवों के संरक्षण के लिए बनाया गया यह प्राणी उद्यान दुनिया भर के जीव जंतु प्रेमियों में खास लोकप्रिय है 
+Predicted Marathi Translation:  तरह से ही यह एक और एक भी पूर्व एक बनाई वातावरण स्टेम होंगे राजस्थान से ही एक भी स्वयं सुनाई झि
+Input English sentence: special attraction of amber is doli palace
+Actual Marathi Translation:  आमेर का विशेष आकर्षण है डोली महल 
+Predicted Marathi Translation:  कालकाजी हैं खुशबू के और तो 
+Input English sentence: there is risk of development of asthma in percent of the children who get cough recurrently in adult state
+Actual Marathi Translation:  जिन बच्चों को बारबार खाँसी होती है उनमें से प्रतिशत को वयस्क अवस्था में अस्थमा विकसित होने का जोखिम होता है 
+Predicted Marathi Translation:  स्त्रियों से ऊँचा नवम्बर विदा सा भी के और साथ प्रजनन के भर के हमेशा अर्थ खुशबू के और तो 
+Input English sentence: this way at the meeting point of ventricles and main bloodcarriers also these valves of the shape of half moon give permission to blood to circulate in the whole body through the medium of the main bloodcarriers
+Actual Marathi Translation:  इसी प्रकार निलय वेट्रिकल और प्रमुख रक्तवाहिनियों के मिलन स्थल पर भी अर्द्धचन्द्राकार आकृति के ये वाल्व रक्त को प्रमुख रक्तवाहिनियों के माध्यम से पूरे शरीर में प्रवाह की अनुमति देते हैं 
+Predicted Marathi Translation:  इस की ही कल पर भी 
+Input English sentence: this medicine is said to be beneficial for patients with these symptoms
+Actual Marathi Translation:  ऐसे लक्षणों वाले रोगी के लिए यह औषधि उपयोगी कही गयी है 
+Predicted Marathi Translation:  इस और की भी बढ़ चरण बजट खुशनुमा है खुशबू की ही शब्द की भी कम राज्य में भी जाता खुशबू रंग एक और
+Input English sentence: in the lanes of gustavia the capital of this place there is the influence of stylish boutiques and cool cafe french culture
+Actual Marathi Translation:  यहाँ की राजधानी गुस्ताविया की गलियों में स्टाइलिश बुटीक्स और कूल कैफे फ्रेंच कल्चर का ही असर हैं 
+Predicted Marathi Translation:  इस रोग है खुशबू की ही संबंधी एक भी 
+Input English sentence: the ancient name of orissa is utkal meaning a place best in art
+Actual Marathi Translation:  ये सब एकसाथ मिल कर उड़ीसा के वातावरण को रंगीन बना देते हैं 
+Predicted Marathi Translation:  भूटान पर ही है खुशबू के और तो 
+Input English sentence: after climbing feet a road goes to pemagalis from a crack made in krishnagiri
+Actual Marathi Translation:  फीट चढ़कर कृष्णागिरी में बने दर्रे से एक सड़क पेमागासिल को जाती है 
+Predicted Marathi Translation:  एक ही 
+Input English sentence: rail service gualior is on the delhi mumbai and delhi chennai main line of the central railway
+Actual Marathi Translation:  रेल सेवाएँ ग्वालियर मध्य रेलवे की दिल्ली मुंबई और दिल्ली मद्रास मेन लाइन पर है 
+Predicted Marathi Translation:  दिल्ली के भर मर्ज रोमांचकारी हलचल हो के अपने 
+Input English sentence: after bathing putting oil in between the toes keeps the memory good
+Actual Marathi Translation:  स्नान करते समय मुँह में पानी भरकर स्नान करें व बदन पोंछ्ने के बाद पानी निकाल दें इससे सर्दियों में कभी जुकाम नहीं होगा 
+Predicted Marathi Translation:  प्रातकाल है खुशबू की भी शब्द की भी कम एक और एक भी की भी शुरू की 
+Input English sentence: the kamadgiri place of chitrakoot has an immense importance in a religious point of view
+Actual Marathi Translation:  चित्रकूट का कामदगिरी स्थल धार्मिक दृष्टिकोण से अपार महत्व रखता है 
+Predicted Marathi Translation:  ’ की एक भी 
+Input English sentence: after this paleness comes in urine eyes and skin
+Actual Marathi Translation:  इसके बाद पेशाब आँखों व स्किन में पीलापन आता है 
+Predicted Marathi Translation:  इसके एक और एक और के भी अगर 
+Input English sentence: bhimshankar area is located in the conserved tribal declared area
+Actual Marathi Translation:  भीमशंकर क्षेत्र संरक्षित आदीवासी घोषित क्षेत्र में स्थित है 
+Predicted Marathi Translation:  रामगढ़ के और भी 
+Input English sentence: until now infected teeth with germs are also treated by this process
+Actual Marathi Translation:  इस विधि से अभी तक कीड़े लगे संक्रमित दाँतों का इलाज भर किया जाता है 
+Predicted Marathi Translation:  ऐसे और दिशा में भी पीठ से साथ ही मकानों से एक और एक 
+BLEU-1: 0.003459
+BLEU-2: 0.000000
+BLEU-3: 0.000000
+BLEU-4: 0.000000
+Individual 1-gram: 0.003459
+Individual 2-gram: 0.000000
+Individual 3-gram: 0.000000
+Individual 4-gram: 0.000000
+BLEU-1: 0.003487
+BLEU-2: 0.000000
+BLEU-3: 0.000000
+BLEU-4: 0.000000
+Individual 1-gram: 0.003487
+Individual 2-gram: 0.000000
+Individual 3-gram: 0.000000
+Individual 4-gram: 0.000000
