@@ -33,6 +33,7 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 20) https://github.com/spro/practical-pytorch/blob/master/seq2seq-translation/seq2seq-translation-batched.ipynb
 21) https://towardsdatascience.com/understanding-bidirectional-rnn-in-pytorch-5bd25a5dd66
 22) https://discuss.pytorch.org/t/cuda-changes-expected-lstm-hidden-dimensions/10765/6
+23) https://discuss.pytorch.org/t/cuda-changes-expected-lstm-hidden-dimensions/10765/6
 
 # Hindi text Normalization
 
