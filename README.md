@@ -27,6 +27,13 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 14) https://machinelearningmastery.com/encoder-decoder-attention-sequence-to-sequence-prediction-keras/ (important)
 15) https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html
 16) https://github.com/bentrevett/pytorch-seq2seq/blob/master/1%20-%20Sequence%20to%20Sequence%20Learning%20with%20Neural%20Networks.ipynb
+17) https://towardsdatascience.com/word-level-english-to-marathi-neural-machine-translation-using-seq2seq-encoder-decoder-lstm-model-1a913f2dc4a7
+18) https://discuss.pytorch.org/t/are-the-outputs-of-bidirectional-gru-concatenated/15103
+19) https://towardsdatascience.com/attention-seq2seq-with-pytorch-learning-to-invert-a-sequence-34faf4133e53
+20) https://github.com/spro/practical-pytorch/blob/master/seq2seq-translation/seq2seq-translation-batched.ipynb
+21) https://towardsdatascience.com/understanding-bidirectional-rnn-in-pytorch-5bd25a5dd66
+22) https://discuss.pytorch.org/t/cuda-changes-expected-lstm-hidden-dimensions/10765/6
+23) https://discuss.pytorch.org/t/cuda-changes-expected-lstm-hidden-dimensions/10765/6
 
 # Hindi text Normalization
 
