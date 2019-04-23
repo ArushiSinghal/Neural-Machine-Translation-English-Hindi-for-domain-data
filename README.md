@@ -60,3 +60,12 @@ https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubun
 
 # Multiple GPUs
 https://www.pyimagesearch.com/2017/10/30/how-to-multi-gpu-training-with-keras-python-and-deep-learning/
+
+# Make the batches such that 1 of health and 2 of tourism.
+# Show the results of whatever all you implemented. (100 from each)
+# Hiramnai shared code
+# Coverage Model Links
+
+1) https://github.com/ZhenYangIACAS/NMT
+2) https://github.com/tuzhaopeng/nmt
+3) https://paperswithcode.com/paper/modeling-coverage-for-neural-machine#code
