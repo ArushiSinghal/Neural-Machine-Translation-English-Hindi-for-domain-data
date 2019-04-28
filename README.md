@@ -34,6 +34,8 @@ Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-
 21) https://towardsdatascience.com/understanding-bidirectional-rnn-in-pytorch-5bd25a5dd66
 22) https://discuss.pytorch.org/t/cuda-changes-expected-lstm-hidden-dimensions/10765/6
 23) https://discuss.pytorch.org/t/cuda-changes-expected-lstm-hidden-dimensions/10765/6
+24) https://github.com/A-Jacobson/minimal-nmt/blob/master/nmt_tutorial.ipynb (Important)
+25) https://medium.com/@martinpella/how-to-use-pre-trained-word-embeddings-in-pytorch-71ca59249f76 (GloVe in pytorch)
 
 # Hindi text Normalization
 
