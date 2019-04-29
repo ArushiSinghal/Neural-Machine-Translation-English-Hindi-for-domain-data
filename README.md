@@ -71,3 +71,6 @@ https://www.pyimagesearch.com/2017/10/30/how-to-multi-gpu-training-with-keras-py
 1) https://github.com/ZhenYangIACAS/NMT
 2) https://github.com/tuzhaopeng/nmt
 3) https://paperswithcode.com/paper/modeling-coverage-for-neural-machine#code
+
+# Thesis work done for converting between Hindi to English on almost same size of data
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=2ahUKEwj72dn33fXhAhWNbn0KHYNnDNUQFjADegQIBBAC&url=http%3A%2F%2Fweb2py.iiit.ac.in%2Fresearch_centres%2Fpublications%2Fdownload%2Fmastersthesis.pdf.af2224b7bc18088c.4b756e616c2d5468657369732d46696e616c2e706466.pdf&usg=AOvVaw2PZO-pochZDvz7x-4t49pa
