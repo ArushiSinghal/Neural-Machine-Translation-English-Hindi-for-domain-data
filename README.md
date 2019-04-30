@@ -77,3 +77,9 @@ https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&v
 
 # Researchgate for hindi to english machine translation
 https://www.researchgate.net/publication/228783817_Machine_translation_of_bi-lingual_hindi-english_hinglish_text
+
+
+# English sentences
+1) Rajasthan coerced every person sitting on choupal to dance by giving a performance on popular folk songs like qawwali , dama - dam mast kalandar and holiya mey ude re gulaal.
+2) 
+
