@@ -49,9 +49,6 @@ Report:- https://docs.google.com/document/d/10rAypGzTKjiJOw9Xe0qi9jYFTlNq8AQitoh
 # The IIT Bombay English-Hindi Parallel Corpus
 https://www.cse.iitb.ac.in/~pb/papers/lrec18-iitbparallel.pdf
 
-# Dataset Link
-http://10.3.1.91/~datashare/wat/
-
 # Document Link to the Errors found in the Dataset
 https://docs.google.com/document/d/1zz67TTlVi0YuH7zUjD3up4O_7qKd8lCtElhxcH1bMWk/edit
 
@@ -67,11 +64,6 @@ https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubun
 # Multiple GPUs
 https://www.pyimagesearch.com/2017/10/30/how-to-multi-gpu-training-with-keras-python-and-deep-learning/
 
-# Make the batches such that 1 of health and 2 of tourism.
-# Show the results of whatever all you implemented. (100 from each)
-# Hiramnai shared code
-# Coverage Model Links
-
 1) https://github.com/ZhenYangIACAS/NMT
 2) https://github.com/tuzhaopeng/nmt
 3) https://paperswithcode.com/paper/modeling-coverage-for-neural-machine#code
@@ -81,9 +73,3 @@ https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&v
 
 # Researchgate for hindi to english machine translation
 https://www.researchgate.net/publication/228783817_Machine_translation_of_bi-lingual_hindi-english_hinglish_text
-
-
-# English sentences
-1) Rajasthan coerced every person sitting on choupal to dance by giving a performance on popular folk songs like qawwali , dama - dam mast kalandar and holiya mey ude re gulaal.
-2) 
-
