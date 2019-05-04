@@ -8,7 +8,11 @@ Contributor:
 1) Arushi Singhal 201516178
 2) Simran Singhal 201516190
 
-Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-CQCzlql4/edit?usp=sharing
+Presentation :- https://docs.google.com/presentation/d/1UgQXnST6rxZpctD8Atuaus7-2tdmhHMxCvMiZXemXck/edit?usp=sharing
+
+Interim Report:- https://docs.google.com/document/d/1n1o2qPxLaCnB0E83i_ZiPZCA_8fN_uMCrQ-CQCzlql4/edit?usp=sharing
+
+Report:- https://docs.google.com/document/d/10rAypGzTKjiJOw9Xe0qi9jYFTlNq8AQitohGlploK44/edit?usp=sharing
 
 # References
 1) https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html (main)
